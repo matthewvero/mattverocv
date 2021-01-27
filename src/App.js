@@ -18,27 +18,27 @@ function App() {
   return (
     <div className="App">
     <ThemeProvider theme={themeLight}>
-      <Header/>
-      <CSSTransition
-        in={mainMenuVisible}
-        classNames='mainmenu'
-        timeout={200}
-        unmountOnExit
-        nodeRef={mainMenuRef}
-      > 
-        <div ref={mainMenuRef}>
-          <MainMenu/>
+        <Header/>
+        <CSSTransition
+          in={mainMenuVisible}
+          classNames='mainmenu'
+          timeout={200}
+          unmountOnExit
+          nodeRef={mainMenuRef}
+        > 
+          <div ref={mainMenuRef}>
+            <MainMenu/>
+          </div>
+        </CSSTransition>
+        <div style={{paddingTop: '100px'}}>
+          <Router>
+            <Switch>
+              <Route path='/'>
+                <Homepage/>
+              </Route>
+            </Switch>
+          </Router>
         </div>
-      </CSSTransition>
-      <div style={{paddingTop: '100px'}}>
-        <Router>
-          <Switch>
-            <Route path='/'>
-              <Homepage/>
-            </Route>
-          </Switch>
-        </Router>
-      </div>
       </ThemeProvider>
     </div>
   );

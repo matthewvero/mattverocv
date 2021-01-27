@@ -7,8 +7,8 @@ export const TitleCard = styled.div`
       padding: 10px;
       box-sizing: border-box;
       background-color: #7510f7;
-      border-radius: 10px;
-      box-shadow: 0 3px 5px #666666;
+      border-radius: ${props => props.theme.borderRadius};
+      box-shadow: ${props => props.theme.boxShadow};
       display: flex; 
       flex-direction: column;
       align-items: center;
@@ -32,7 +32,7 @@ export const InfoCard = styled(TitleCard)`
 
 export const SkillCardIcon = styled(InlineIcon)`
       margin: 0 10px;
-      color: #7510f7;
+      color: ${props => props.theme.main};
       transition: transform 100ms ease;
 `
 
@@ -40,12 +40,12 @@ export const SkillCard = styled.div`
       width: 100%; 
       height: 50px; 
       margin-bottom: 10px;
-      box-shadow: 0 0 3px #999999; 
+      box-shadow: ${props => props.theme.boxShadow}; 
       display: flex; 
       flex-direction: row; 
       align-items: center; 
       justify-content: center; 
-      border-radius: 10px;
+      border-radius: ${props => props.theme.borderRadius};
       &:hover ${SkillCardIcon} {
             transform: scale(2);
       }

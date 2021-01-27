@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { HeaderContainer, HeaderMenuButton } from './header.styles'
 import {ReactComponent as MAVLOGO} from '../../MAVLOGO.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { toggleMainMenu } from '../../redux';
 import { useDispatch, useSelector } from 'react-redux';
+import { ThemeContext } from 'styled-components';
 
 
 const Header = () => {
       const [active, setActive] = useState(false)
       const mainMenuVisible = useSelector(state => state.visible)
       const dispatch = useDispatch()
+      const theme = useContext(ThemeContext);
 
       const handlePointerUp = () => {
             setActive(false);
@@ -29,9 +31,9 @@ const Header = () => {
                   >
                   {
                         mainMenuVisible ? 
-                        <FontAwesomeIcon style={{fontSize: '1.7rem', color: 'white'}} icon={ faTimes }/>
+                        <FontAwesomeIcon style={{fontSize: '1.7rem', color: theme.main}} icon={ faTimes }/>
                         :
-                        <FontAwesomeIcon style={{fontSize: '1.5rem', color: 'white'}} icon={ faBars }/>
+                        <FontAwesomeIcon style={{fontSize: '1.5rem', color: theme.main}} icon={ faBars }/>
                   }
                   </HeaderMenuButton>
             </HeaderContainer>
