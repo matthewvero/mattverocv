@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { SkillCard, SkillCardIcon, SkillCardsContainer, TitleCard, InfoCard } from '../../components/containers.styles'
 import { SubTitle, Text, Title } from '../../components/text.styles'
 import { Page } from '../page.styles'
@@ -14,8 +14,10 @@ import gitIcon from '@iconify-icons/simple-icons/git';
 import firebaseIcon from '@iconify-icons/simple-icons/firebase';
 import mongodbIcon from '@iconify-icons/simple-icons/mongodb';
 import { HomepageGrid } from './homepage.styles';
+import { ThemeContext } from 'styled-components';
 
 const Homepage = () => {
+      const theme = useContext(ThemeContext);
 
       return (
             <Page>
@@ -38,7 +40,7 @@ const Homepage = () => {
                               hi
                         </InfoCard>
                         <div style={{width: '100%', gridColumn: '1/3', order: '4'}}>
-                              <Title style={{color: '#7510f7', marginBottom: '0'}}>
+                              <Title style={{color: theme.text, marginBottom: '0'}}>
                                     Skills
                               </Title>
                               <hr style={{border: 'solid 1px #7510f7', width: '70%', marginBottom: '20px'}}/>

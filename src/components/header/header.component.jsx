@@ -20,10 +20,8 @@ const Header = () => {
       };
 
       return (
-            <HeaderContainer
-                  
-            >
-                  <MAVLOGO viewBox='69 76 20 30' style={{height: '100%', width: '100px'}}/>
+            <HeaderContainer>
+                  <MAVLOGO viewBox='0 -5 150 90' style={{height: '100%', width: '100px'}}/>
                   <HeaderMenuButton 
                         $active={active} 
                         onPointerDown={() => setActive(true)} 
