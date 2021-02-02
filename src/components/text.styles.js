@@ -6,10 +6,10 @@ export const Title = styled.h1`
 `;
 
 export const SubTitle = styled.h2`
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       color: white;
       font-weight: 400;
-
+      margin: 0;
 `
 
 export const Text = styled.p`

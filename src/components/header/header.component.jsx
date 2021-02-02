@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react'
-import { HeaderContainer, HeaderMenuButton } from './header.styles'
-import {ReactComponent as MAVLOGO} from '../../MAVLOGO.svg';
+import { HeaderContainer, HeaderLink, HeaderMenuButton, HeaderNav } from './header.styles'
+import { MAVLOGO } from './header.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { toggleMainMenu } from '../../redux';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 
-const Header = () => {
+const Header = ({history}) => {
       const [active, setActive] = useState(false)
       const mainMenuVisible = useSelector(state => state.visible)
       const dispatch = useDispatch()
@@ -21,7 +22,21 @@ const Header = () => {
 
       return (
             <HeaderContainer>
-                  <MAVLOGO viewBox='0 -5 150 90' style={{height: '100%', width: '100px'}}/>
+                  <HeaderNav >
+                        <HeaderLink>
+                              About Me
+                        </HeaderLink>
+                        <HeaderLink>
+                              Education
+                        </HeaderLink>
+                  </HeaderNav>
+
+                  <MAVLOGO 
+                        viewBox='0 -5 150 90' 
+                        onPointerDown={() => history.push('/')}
+
+                  />
+
                   <HeaderMenuButton 
                         $active={active} 
                         onPointerDown={() => setActive(true)} 
@@ -38,4 +53,4 @@ const Header = () => {
       )
 }
 
-export default Header
+export default withRouter(Header)

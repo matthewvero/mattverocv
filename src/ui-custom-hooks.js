@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function useClickOutsideListener(fn, ref) {
       useEffect(() => {
@@ -13,7 +13,7 @@ export function useClickOutsideListener(fn, ref) {
             setTimeout(() => {
                   window.addEventListener('pointerup', handleClick);
                   
-            }, 100);
+            }, 25);
 
             return () => {
                   // Unbind the event listener on clean up
@@ -21,3 +21,13 @@ export function useClickOutsideListener(fn, ref) {
             };
       }, [fn, ref])
 } 
+
+export function usePageChangeListener(history, fn) {
+      const [prevRoute, setPrevRoute] = useState()
+      useEffect(() => {
+            if (prevRoute !== history.location.pathname) {
+                  setPrevRoute(history.location.pathname);
+                  fn()
+            }
+      }, [fn, history, prevRoute])
+}

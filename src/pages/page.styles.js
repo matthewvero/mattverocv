@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Page = styled.div`
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   display: grid; 
   padding: 20px;
@@ -10,4 +10,16 @@ export const Page = styled.div`
   align-items: center;
   justify-content: start;
   box-sizing: border-box;
+  overflow: scroll;
+`;
+
+export const PageGrid = styled.div`
+      height: auto;
+      width: 100%;
+      display: grid;
+      box-sizing: border-box;
+      gap: 1rem;
+      @media (min-width: 1000px) {
+            width: 70%;
+      }
 `;
