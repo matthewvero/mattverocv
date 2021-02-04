@@ -14,7 +14,9 @@ export const SubTitle = styled.h2`
 
 export const Text = styled.p`
       font-size: 1.3rem;
-      color: #333333;
+      color: ${props => props.$hovering || props.$active ? props.theme.main : '#333333'};
       font-weight: 400;
       margin: 0;
+      transition: all 300ms ease-out;
+
 `

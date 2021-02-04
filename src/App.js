@@ -7,38 +7,29 @@ import {
 } from "react-router-dom";
 import Homepage from './pages/homepage/homepage';
 import MainMenu from './components/main-menu/main-menu.component';
-import { CSSTransition } from 'react-transition-group';
-import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import {themeLight} from './theme'
-import { useEffect, useRef } from 'react';
 import AboutMePage from './pages/aboutme/about-me-page.component';
 import { usePageChangeListener } from './ui-custom-hooks';
-function App({history, location}) {
-  const mainMenuVisible = useSelector(state => state.visible);
-  const mainMenuRef = useRef()
-
+import { useDispatch } from 'react-redux';
+import { setMainMenuVisible } from './redux';
+function App({history}) {
+  const dispatch = useDispatch()
+  const handlePageChange = () => {
+    window.scrollTo(0, 0);
+    dispatch(setMainMenuVisible(false));
+  }
   // Check if page changes and reset scroll.
-  usePageChangeListener(history, () => window.scrollTo(0, 0))
-  useEffect(() => {
-    console.log(location )
-    
-  }, [location])
+  usePageChangeListener(history, handlePageChange)
+
   return (
     <div className="App">
     <ThemeProvider theme={themeLight}>
         <Header/>
-        <CSSTransition
-          in={mainMenuVisible}
-          classNames='mainmenu'
-          timeout={200}
-          unmountOnExit
-          nodeRef={mainMenuRef}
-        > 
-          <div ref={mainMenuRef}>
-            <MainMenu/>
-          </div>
-        </CSSTransition>
+
+        
+          
+          
         <div style={{paddingTop: '100px'}}>
           
             <Switch>

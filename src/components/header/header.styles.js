@@ -8,10 +8,21 @@ export const MAVLOGO = styled(LOGO)`
       @media (max-width: 1000px) {
             width: 70px;
       }
+      transform: scale(${props => {
+            if(props.$active) {
+                  return '0.9'
+            } else if (props.$hovering) {
+                  return '0.95'
+            } else {
+                  return '1'
+            }
+      }});
+      transition: all 100ms ease-out;
+      filter: drop-shadow(10px);
 `;
 
 export const HeaderContainer = styled.header`
-      z-index: 10;
+      z-index: 11;
       position: fixed;
       width: 100vw;
       height: 100px;
@@ -30,31 +41,15 @@ export const HeaderContainer = styled.header`
       }
 `;
 
-export const HeaderMenuButton = styled.div`
-      height: 50px;
-      width: 50px;
-      border-radius: ${props => props.theme.borderRadius};
-      background-color: white;
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center;
-      border: 3px solid ${props => props.theme.main};
-      cursor: pointer;
-      transform: scale(${props => props.$active ? '0.98' : '1'});
-      transition: transform 100ms ease-in;
-      user-select: none;
-      display: none;
-      @media (max-width: 1000px) {
-            display: flex;
-      }
-`
-
 export const HeaderLink = styled.div`
       height: 100%;
-      width: 30%;
+      width: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;   
+      transform: scale(${props => props.$active ? '0.95' : '1'});
+      transition: transform 50ms ease-out;   
 `
 export const HeaderNav = styled.nav`
       height: 100%;

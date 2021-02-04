@@ -2,24 +2,21 @@ import { useEffect, useState } from "react";
 
 export function useClickOutsideListener(fn, ref) {
       useEffect(() => {
-            function handleClick(event) {
+            const handleClick = event => {
                   // Check if click event target matches provided ref
-                  ref.current &&
-                  !ref.current.contains( event.target ) &&
-                  fn()
+                        !ref?.current?.contains( event.target ) &&
+                        fn();
             }
-
-            // Add peace period to let inital click event pass
-            setTimeout(() => {
-                  window.addEventListener('pointerup', handleClick);
-                  
-            }, 25);
-
+            
+            // Add peace period to let inital click event pass before
+            // adding listener
+            window.addEventListener('pointerup', handleClick);
+            
             return () => {
-                  // Unbind the event listener on clean up
-                  document.removeEventListener("click", handleClick);
+                  window.removeEventListener("pointerup", handleClick);
             };
-      }, [fn, ref])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [fn, ref]);
 } 
 
 export function usePageChangeListener(history, fn) {
