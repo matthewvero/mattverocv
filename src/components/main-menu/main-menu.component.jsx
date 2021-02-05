@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useClickOutsideListener } from '../../ui-custom-hooks'
 import { MainMenuContainer, MainMenuSlide, MainMenuButton, MainMenuShell, MainMenuItem } from './main-menu.styles'
-import { setMainMenuVisible, toggleMainMenu } from '../../redux.js';
+import { setContactDetailsVisible, setMainMenuVisible, toggleContactDetails, toggleMainMenu } from '../../redux.js';
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -16,8 +16,8 @@ const MainMenu = ({history}) => {
       const slideRef = useRef()
       const shellRef = useRef()
       const dispatch = useDispatch();
-
-      const visible = useSelector(state => state.visible);
+      const visible = useSelector(state => state.mainMenu.visible);
+      const contactVisible = useSelector(state => state.contactDetails.visible);
       const [slideVisible, setSlideVisible] = useState(false);
       const [active, setActive] = useState(false);
       const theme = useContext(ThemeContext);
@@ -30,6 +30,11 @@ const MainMenu = ({history}) => {
             if (visible) {
                   dispatch(setMainMenuVisible(false))
             }
+      }
+
+      const handleOpenContact = () => {
+            dispatch(toggleContactDetails())
+            dispatch(toggleMainMenu())
       }
 
       useClickOutsideListener(handleClickOutside, shellRef)
@@ -61,7 +66,7 @@ const MainMenu = ({history}) => {
                   onExited={() => setSlideVisible(false)}
             >
             
-                  <MainMenuContainer ref={mainMenuRef}>
+                  <MainMenuContainer ref={mainMenuRef} $contactsopen={contactVisible}>
                         <CSSTransition
                               in={slideVisible && visible}
                               classNames='mainmenuslide'
@@ -76,14 +81,6 @@ const MainMenu = ({history}) => {
                                                 fn={() => history.push('/about')}
                                           >
                                                 <Text>About Me</Text>
-                                          </MainMenuItemTouch>
-                                          
-                                          <HR/>
-                                          
-                                          <MainMenuItemTouch
-                                                fn={() => history.push('/contact')}
-                                          >
-                                                <Text>Contact</Text>
                                           </MainMenuItemTouch>
                                           
                                           <HR/>

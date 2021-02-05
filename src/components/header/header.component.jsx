@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { HeaderContainer, HeaderLink, HeaderNav } from './header.styles'
+import { HeaderContainer, HeaderLink, HeaderNav, MobileContactButton } from './header.styles'
 import { MAVLOGO } from './header.styles';
 import { withRouter } from 'react-router-dom';
 import { Text } from '../text.styles';
 import withTouchAnimator from '../../HOCs/with-touch-animator';
 import MainMenu from '../main-menu/main-menu.component';
 import {useDebounce} from '../../ui-custom-hooks.js'
-
+import ContactDetails from '../contact/contact-details.component';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleContactDetails } from '../../redux';
+import { CSSTransition } from 'react-transition-group';
 const Header = ({history}) => {
       const [popped, setPopped] = useState(false);
       const [transition, setTransition] = useState(false);
+      const contactDetailsVisible = useSelector(state => state.contactDetails.visible);
+      const [contactContentVisible, setContactContentVisible] = useState(false);
+      const dispatch = useDispatch();
       const handleScroll = () => {
             setTransition(true);
             setTimeout(() => setTransition(false), 200);
@@ -28,16 +34,17 @@ const Header = ({history}) => {
             return () => {
                   window.removeEventListener('scroll', debounceHandleScroll);
             }
-            
+
       }, [debounceHandleScroll, popped])
       const HeaderLinkTouch = withTouchAnimator(HeaderLink);
       const MAVLOGOTouch = withTouchAnimator(MAVLOGO);
+      const MobileContactButtonTouch = withTouchAnimator(MobileContactButton);
       return (
             <HeaderContainer $popped={popped} $transition={transition}> 
+            
                   <HeaderNav >
                         <HeaderLinkTouch 
                               fn={() => history.push('/about')}
-                              
                         >
                               <Text>About Me</Text>
                         </HeaderLinkTouch>
@@ -55,19 +62,42 @@ const Header = ({history}) => {
 
                   <HeaderNav >
                         <HeaderLinkTouch 
-                        fn={() => history.push('/projects')}
+                              fn={() => history.push('/projects')}
                         >
                               <Text>Projects</Text>
                         </HeaderLinkTouch>
                         <HeaderLinkTouch 
-                        fn={() => history.push('/contact')}
+                              fn={() => dispatch(toggleContactDetails())}
                         >
                               <Text>Contact</Text>
                         </HeaderLinkTouch>
                   </HeaderNav>
 
+                  <div style={{height: '100%', width: '180px', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                  
+                        <MobileContactButtonTouch
+                              fn={() => dispatch(toggleContactDetails())}
+                        >
+                              <Text>Contact</Text>
+                        </MobileContactButtonTouch>                        
+                        
+                        <MainMenu/>
+                  
+                  </div>
 
-                  <MainMenu/>
+                  
+
+                  <CSSTransition
+                        in={contactDetailsVisible}
+                        timeout={200}
+                        unmountOnExit
+                        classNames='contactDetails'
+                        
+
+                  >
+                        <ContactDetails />
+                  </CSSTransition>
+                  
             </HeaderContainer>
       )
 }

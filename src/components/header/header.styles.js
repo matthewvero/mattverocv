@@ -57,6 +57,7 @@ export const HeaderLink = styled.div`
       cursor: pointer;   
       transform: scale(${props => props.$active ? '0.95' : '1'});
       transition: transform 50ms ease-out;   
+
 `
 export const HeaderNav = styled.nav`
       height: 100%;
@@ -67,5 +68,19 @@ export const HeaderNav = styled.nav`
       justify-content: ${props => props.right ? 'flex-start' : 'flex-end'};
       @media (max-width: 1000px) {
             display: none;
+      }
+`
+export const MobileContactButton = styled.div`
+      display: none;
+      width: 100px;
+      height: 40px;
+      border: 2px solid ${props => props.theme.main};
+      border-radius: 50px;
+      align-items: center;
+      justify-content: center;
+      transform: scale(${props => props.$active ? '0.95' : '1'});
+      cursor: pointer;
+      @media (max-width: 1000px) {
+            display: flex;
       }
 `

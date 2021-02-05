@@ -9,9 +9,10 @@ import { ThemeProvider } from 'styled-components';
 import {themeLight} from './theme'
 import AboutMePage from './pages/aboutme/about-me-page.component';
 import { usePageChangeListener } from './ui-custom-hooks';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setMainMenuVisible } from './redux';
 import { CSSTransition } from 'react-transition-group';
+import ContactDetails from './components/contact/contact-details.component';
 function App({history, match}) {
   const dispatch = useDispatch()
   const handlePageChange = () => {
@@ -20,16 +21,15 @@ function App({history, match}) {
   }
   // Check if page changes and reset scroll.
   usePageChangeListener(history, handlePageChange)
-
+  const contactVisible = useSelector(state => state.contactDetails.visible);
   return (
     <div className="App">
     <ThemeProvider theme={themeLight}>
         <Header/>
-
         
           
           
-        <div style={{paddingTop: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <div className='ting' style={{paddingTop: contactVisible ? '200px' : '100px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           
           <Route exact path='/'>
 

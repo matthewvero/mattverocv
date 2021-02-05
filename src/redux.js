@@ -1,6 +1,7 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit"
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const mainMenuSlice = createSlice({
+
+const mainMenu = createSlice({
       name: 'mainMenu',
       initialState: {visible: false},
       reducers: {
@@ -10,10 +11,21 @@ const mainMenuSlice = createSlice({
 }
 )
 
+const contactDetails = createSlice({
+      name: 'contact', 
+      initialState: {visible: false},
+      reducers: {
+            toggleContactDetails: state => {state.visible = !state.visible},
+            setContactDetailsVisible: (state, action) => {state.visible = action.payload}
+      }
+})
+
 const store = configureStore({
-      reducer: mainMenuSlice.reducer
+      reducer: {mainMenu: mainMenu.reducer, contactDetails: contactDetails.reducer}
 });
 
-export const {toggleMainMenu, setMainMenuVisible} = mainMenuSlice.actions;
+export const {toggleMainMenu, setMainMenuVisible} = mainMenu.actions;
+export const {toggleContactDetails, setContactDetailsVisible} = contactDetails.actions;
+
 
 export default store;
