@@ -13,23 +13,23 @@ const cardStyles = `
 export const TitleCard = styled.header`
       ${cardStyles}
       justify-content: center;
-      background-color: #7510f7;
       border-radius: ${props => props.theme.borderRadius};
-      box-shadow: ${props => props.theme.boxShadow};
+      padding: 20px;
 `
 
 export const InfoCard = styled.section`
       ${cardStyles}
       border-radius: ${props => props.theme.borderRadius};
-      box-shadow: ${props => props.theme.boxShadow};
-      background-color: white;
       width: 100%;
-      height: auto;
-      min-height: 300px;
+      height: 100%;
       padding: 10px 20px;
       grid-column: 1/3;
-      display: flex;
-      justify-content: start;
+      display: grid;
+      grid-template-rows: 30px;
+      grid-auto-rows: auto;
+      align-items: start;
+      justify-items: center;
+      background-color: ${props => props.theme.surface};
       @media (min-width: 1200px) {
             grid-column: auto;
       }
@@ -45,12 +45,12 @@ export const SkillCard = styled.div`
       width: 100%; 
       height: 50px; 
       margin-bottom: 10px;
-      box-shadow: ${props => props.theme.boxShadow}; 
       display: flex; 
       flex-direction: row; 
       align-items: center; 
       justify-content: center; 
       border-radius: ${props => props.theme.borderRadius};
+      background-color: ${props => props.theme.surface};
       &:hover ${SkillCardIcon} {
             transform: scale(2);
       }
@@ -67,5 +67,6 @@ export const SkillCardsContainer = styled.div`
       flex-flow: row wrap;
       align-items: center;
       justify-content: space-between;
+      
 `
 

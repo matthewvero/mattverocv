@@ -4,5 +4,5 @@ import { PageGrid } from '../page.styles';
 export const HomepageGrid = styled(PageGrid)`
       grid-template-columns: 1fr 1fr;
       grid-auto-rows: auto;
-      align-items: center;
+      align-items: start;
 `;

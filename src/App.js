@@ -1,19 +1,18 @@
 import './App.css';
 import Header from './components/header/header.component';
 import {
-  Switch,
   Route,
   withRouter,
 } from "react-router-dom";
 import Homepage from './pages/homepage/homepage';
-import MainMenu from './components/main-menu/main-menu.component';
 import { ThemeProvider } from 'styled-components';
 import {themeLight} from './theme'
 import AboutMePage from './pages/aboutme/about-me-page.component';
 import { usePageChangeListener } from './ui-custom-hooks';
 import { useDispatch } from 'react-redux';
 import { setMainMenuVisible } from './redux';
-function App({history}) {
+import { CSSTransition } from 'react-transition-group';
+function App({history, match}) {
   const dispatch = useDispatch()
   const handlePageChange = () => {
     window.scrollTo(0, 0);
@@ -30,16 +29,53 @@ function App({history}) {
         
           
           
-        <div style={{paddingTop: '100px'}}>
+        <div style={{paddingTop: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           
-            <Switch>
-              <Route exact path='/'>
-                <Homepage/>
-              </Route>
-              <Route path='/about'>
-                <AboutMePage/>
-              </Route>
-            </Switch>
+          <Route exact path='/'>
+
+            {({ match }) => (
+          
+            <CSSTransition
+              in={match != null}
+              timeout={2000}
+              classNames="page"
+              unmountOnExit
+            >
+              <Homepage/>
+            </CSSTransition>
+            )}
+          </Route>
+
+          <Route path='/contact'>
+
+            {({ match }) => (
+          
+            <CSSTransition
+              in={match != null}
+              timeout={2000}
+              classNames="page"
+              unmountOnExit
+            >
+              <Homepage/>
+            </CSSTransition>
+            )}
+          </Route>
+
+          <Route exact path='/about'>
+
+            {({ match }) => (
+          
+            <CSSTransition
+              in={match != null}
+              timeout={2000}
+              classNames="page"
+              unmountOnExit
+            >
+              <AboutMePage/>
+            </CSSTransition>
+            )}
+          </Route>
+            
         </div>
       </ThemeProvider>
     </div>

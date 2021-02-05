@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { InfoCard, TitleCard } from '../../components/containers.styles'
+import { HR } from '../../components/misc.styles'
 import { SubTitle, Text, Title } from '../../components/text.styles'
 import { Page } from '../page.styles'
 import { AboutMePageGrid } from './about-me-page.styles'
@@ -18,7 +19,7 @@ const AboutMePage = () => {
                               <SubTitle style={{color: theme.main}}>
                                     Introduction
                               </SubTitle>
-                              <hr style={{border: 'solid 1px #7510f7', width: '70%'}}/>
+                              <HR header/>
 
                               <Text style={{marginBottom: '10px'}}>
                                     I'm Matt Vero, a self taught front end developer motivated by a passion for learning,
@@ -26,7 +27,7 @@ const AboutMePage = () => {
 
                               </Text>
                               <Text style={{marginBottom: '10px'}}>
-                                    I really enjoy working amongst a team and love solving problems in fast paced environments, 
+                                    I really enjoy working amongst a team and love solving problems in dynamic environments, 
                                     especially when surrounded by supportive, like-minded team members.  
                               </Text>
                         </InfoCard>
@@ -34,29 +35,28 @@ const AboutMePage = () => {
                               <SubTitle style={{color: theme.main}}>
                                     Goals
                               </SubTitle>
-                              <hr style={{border: 'solid 1px #7510f7', width: '70%', color: theme.main}}/>
+                              <HR header/>
                               
                               <Text>Become a crucial and valued member of a team.</Text>
-                              <hr style={{border: 'solid 1px #dddddd', width: '30%', color: theme.main}}/>
+                              <HR style={{width: '40%'}}/>
                               
                               <Text>Be known as an expert in my field.</Text>
-                              <hr style={{border: 'solid 1px #dddddd', width: '30%', color: theme.main}}/>
+                              <HR style={{width: '40%'}}/>
 
                               <Text>Learn from the best.</Text>
-                              <hr style={{border: 'solid 1px #dddddd', width: '30%', color: theme.main}}/>
+                              <HR style={{width: '40%'}}/>
 
                               <Text>Create work my team and I can be proud of.</Text>
-                              <hr style={{border: 'solid 1px #dddddd', width: '30%', color: theme.main}}/>
+                              <HR style={{width: '40%'}}/>
 
                               <Text>Make it look easy.</Text>
-                              <hr style={{border: 'solid 1px #dddddd', width: '30%', color: theme.main}}/>
+                              <HR style={{width: '40%'}}/>
                         </InfoCard>
                         <InfoCard style={{order: '4', gridColumn: '1/3'}}>
                               <SubTitle style={{color: theme.main}}>
                                     Personal Time
                               </SubTitle>
-                              <hr style={{border: 'solid 1px #7510f7', width: '70%', color: theme.main}}/>
-                              
+                              <HR header/>                              
                               <Text style={{marginBottom: '10px'}}>
                                     When I'm not working on becoming the *best front end developer ever* 
                                     <br/>
@@ -65,7 +65,7 @@ const AboutMePage = () => {
                               <Text style={{marginBottom: '10px'}}>
                                     3D printing, gaming (tabletop / video), trying to grow plants etc. 
                                     <br/>
-                                    Usually whichever takes my fancy on that week. 
+                                    Usually whichever takes my fancy in the moment. 
                               </Text>
                         </InfoCard>
                   </AboutMePageGrid>

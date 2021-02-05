@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useClickOutsideListener } from '../../ui-custom-hooks'
 import { MainMenuContainer, MainMenuSlide, MainMenuButton, MainMenuShell, MainMenuItem } from './main-menu.styles'

@@ -13,7 +13,6 @@ export const MainMenuButton = styled.div`
       height: 50px;
       width: 50px;
       border-radius: ${props => props.theme.borderRadius};
-      background-color: white;
       box-sizing: border-box;
       justify-content: center;
       align-items: center;
@@ -36,8 +35,8 @@ export const MainMenuContainer = styled.div`
       flex-direction: column;
       justify-content: start;
       align-items: center;
-      background-color: white;
-      box-shadow: inset ${props => props.theme.boxShadow};
+      background-color: ${props => props.theme.surface};
+      box-shadow: inset 0 0 10px #111111;
       &.mainmenu-enter {
 		transform: translateX(100%);
 	}

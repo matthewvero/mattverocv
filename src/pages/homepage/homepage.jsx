@@ -17,18 +17,17 @@ import { HomepageGrid } from './homepage.styles';
 import { ThemeContext } from 'styled-components';
 import Button from '../../components/button/button.component';
 import { withRouter } from 'react-router-dom';
-
+import {HR} from '../../components/misc.styles.js'
 const Homepage = ({history}) => {
       const theme = useContext(ThemeContext);
       
       return (
             <Page>
-                             
                         <HomepageGrid>
                         
                               <TitleCard style={{gridColumn: '1/3', gridRow: '1/2', order: '1'}}>
                                     <Title style={{marginBottom: '10px'}}>Junior Front End Developer</Title>
-                                    <hr style={{border: 'solid 1px white', width: '70%'}}/>
+                                    <HR header />
                                     <SubTitle style={{marginTop: '0', width: '80%'}}>
                                           Front end developer with experience using the React ecosystem 
                                           to create responsive and easy to use SPAs
@@ -36,8 +35,8 @@ const Homepage = ({history}) => {
                               </TitleCard>
                               
                               <InfoCard style={{order: '2'}}>
-                                    <SubTitle style={{color: '#333333', margin: '5px 0'}}>About Me</SubTitle>
-                                    <hr style={{border: 'solid 1px #7510f7', width: '70%'}}/>
+                                    <SubTitle style={{color: theme.main, margin: '5px 0'}}>About Me</SubTitle>
+                                    <HR header />
                                     <Text style={{marginBottom: '10px'}}>
                                           I'm Matt Vero, a self taught front end developer motivated by a passion for learning,
                                           fast-paced work and asking lots of questions.   
@@ -46,13 +45,13 @@ const Homepage = ({history}) => {
                                           I have many long term goals but No.1 on my list is to become a crucial, 
                                           valued member of a team doing work I genuinely believe in. 
                                     </Text>
-                                    <Button style={{margin: '10px 0'}} fn={() => history.push('/about')}>
+                                    <Button style={{margin: '10px 0', alignSelf: 'end'}} fn={() => history.push('/about')}>
                                           <Text style={{color: theme.main}}>See More...</Text>
                                     </Button>
                               </InfoCard>
                               <InfoCard style={{order: '3'}}>
-                                    <SubTitle style={{color: '#333333', margin: '5px 0'}}>Education</SubTitle>
-                                    <hr style={{border: 'solid 1px #7510f7', width: '70%'}}/>
+                                    <SubTitle style={{color: theme.main, margin: '5px 0'}}>Education</SubTitle>
+                                    <HR header />
                                     <Text style={{marginBottom: '10px'}}>
                                           I learned everything front end using the extensive resources on the internet, 
                                           including multiple Udemy Courses, youtube, MDN etc. and fell in love with developing in the process. 
@@ -63,12 +62,15 @@ const Homepage = ({history}) => {
                                           so once I passed I started working part time and began learning to code. 
 
                                     </Text>
+                                    <Button style={{margin: '10px 0', alignSelf: 'end'}} fn={() => history.push('/education')}>
+                                          <Text style={{color: theme.main}}>See More...</Text>
+                                    </Button>
                               </InfoCard>
                               <div style={{width: '100%', gridColumn: '1/3', order: '4'}}>
                                     <Title style={{color: theme.text, marginBottom: '0'}}>
                                           Skills
                                     </Title>
-                                    <hr style={{border: 'solid 1px #7510f7', width: '70%', marginBottom: '20px'}}/>
+                                    <HR header/>
                               </div>
                               <SkillCardsContainer style={{gridColumn: '1/3', order: '5'}}>
                               
