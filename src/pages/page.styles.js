@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components/macro';
 
 export const Page = styled.div`
-      min-height: 100vh;
+      height: 100vh;
       width: 100%;
       display: grid; 
       padding: 20px;
