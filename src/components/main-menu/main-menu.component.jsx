@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useClickOutsideListener } from '../../ui-custom-hooks'
 import { MainMenuContainer, MainMenuSlide, MainMenuButton, MainMenuShell, MainMenuItem } from './main-menu.styles'
-import { setContactDetailsVisible, setMainMenuVisible, toggleContactDetails, toggleMainMenu } from '../../redux.js';
+import { setMainMenuVisible, toggleMainMenu } from '../../redux.js';
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -31,12 +31,6 @@ const MainMenu = ({history}) => {
                   dispatch(setMainMenuVisible(false))
             }
       }
-
-      const handleOpenContact = () => {
-            dispatch(toggleContactDetails())
-            dispatch(toggleMainMenu())
-      }
-
       useClickOutsideListener(handleClickOutside, shellRef)
       
       const MainMenuItemTouch = withTouchAnimator(MainMenuItem);

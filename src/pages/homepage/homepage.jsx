@@ -15,12 +15,13 @@ import firebaseIcon from '@iconify-icons/simple-icons/firebase';
 import mongodbIcon from '@iconify-icons/simple-icons/mongodb';
 import { HomepageGrid } from './homepage.styles';
 import { ThemeContext } from 'styled-components';
-import Button from '../../components/button/button.component';
+import {Button} from '../../components/button.styles.js';
 import { withRouter } from 'react-router-dom';
 import {HR} from '../../components/misc.styles.js'
+import withTouchAnimator from '../../HOCs/with-touch-animator';
 const Homepage = ({history}) => {
       const theme = useContext(ThemeContext);
-      
+      const ButtonTouch = withTouchAnimator(Button)
       return (
             <Page>
                         <HomepageGrid>
@@ -45,9 +46,9 @@ const Homepage = ({history}) => {
                                           I have many long term goals but No.1 on my list is to become a crucial, 
                                           valued member of a team doing work I genuinely believe in. 
                                     </Text>
-                                    <Button style={{margin: '10px 0', alignSelf: 'end'}} fn={() => history.push('/about')}>
+                                    <ButtonTouch style={{margin: '10px 0', alignSelf: 'end'}} fn={() => history.push('/about')}>
                                           <Text style={{color: theme.main}}>See More...</Text>
-                                    </Button>
+                                    </ButtonTouch>
                               </InfoCard>
                               <InfoCard style={{order: '3'}}>
                                     <SubTitle style={{color: theme.main, margin: '5px 0'}}>Education</SubTitle>
@@ -62,9 +63,9 @@ const Homepage = ({history}) => {
                                           so once I passed I started working part time and began learning to code. 
 
                                     </Text>
-                                    <Button style={{margin: '10px 0', alignSelf: 'end'}} fn={() => history.push('/education')}>
+                                    <ButtonTouch style={{margin: '10px 0', alignSelf: 'end'}} fn={() => history.push('/education')}>
                                           <Text style={{color: theme.main}}>See More...</Text>
-                                    </Button>
+                                    </ButtonTouch>
                               </InfoCard>
                               <div style={{width: '100%', gridColumn: '1/3', order: '4'}}>
                                     <Title style={{color: theme.text, marginBottom: '0'}}>

@@ -14,19 +14,18 @@ const Header = ({history}) => {
       const [popped, setPopped] = useState(false);
       const [transition, setTransition] = useState(false);
       const contactDetailsVisible = useSelector(state => state.contactDetails.visible);
-      const [contactContentVisible, setContactContentVisible] = useState(false);
       const dispatch = useDispatch();
       const handleScroll = () => {
             setTransition(true);
             setTimeout(() => setTransition(false), 200);
-            if (window.scrollY > 0 && popped !== true) {
+            if (window.scrollY > 0) {
                   setPopped(true);
                   
-            } else if (window.scrollY === 0 && popped !== false){
+            } else if (window.scrollY === 0){
                   setPopped(false);
             }
       }
-      const debounceHandleScroll = useDebounce(handleScroll, 200)
+      const debounceHandleScroll = useDebounce(handleScroll, 100)
       useEffect(() => {
             
             

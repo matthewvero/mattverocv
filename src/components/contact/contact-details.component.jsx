@@ -1,28 +1,43 @@
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useContext, useRef } from 'react'
-import { CSSTransition } from 'react-transition-group'
-import { ThemeContext } from 'styled-components'
+import React, { useRef, useState } from 'react'
 import withTouchAnimator from '../../HOCs/with-touch-animator'
+import { ContactButton, ContactDetailsContainer, ContactDetailsFader, CopiedIndicator } from './contact-details.styles'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CSSTransition } from 'react-transition-group'
 import { Text } from '../text.styles'
-import { ContactButton, ContactDetailsContainer, ContactDetailsFader } from './contact-details.styles'
-
 const ContactDetails = ({$visible}) => {
       const ContactButtonTouch = withTouchAnimator(ContactButton);
+      const clipBoardRef = useRef();
+      const [copied, setCopied] = useState(false);
       const copyEmail = () => {
-            navigator.clipboard.writeText('matthewverobusiness@gmail.com');
-            alert('Copied mattverobusiness@gmail.com to clipboard!');
+            // clipBoardRef.current.select();
+            // clipBoardRef.current.selectRange(0, 9999);
+            // document.execCommand("copy");
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1000);
       }  
       return (
-            <ContactDetailsContainer>
+            <ContactDetailsContainer ref={clipBoardRef}>
                         <ContactDetailsFader>
                               <ContactButtonTouch fn={() => window.open('http://linkedin.com/in/matthewavero')} icon={faLinkedin}/>
                               <ContactButtonTouch fn={() => window.open('https://github.com/matthewvero')} icon={faGithub}/>
-                              <ContactButtonTouch fn={() => copyEmail()} icon={faEnvelope}/>
+                              <CopyToClipboard text={'matthewverobusiness@gmail.com'} onCopy={copyEmail}>
+                                    <div style={{position: 'relative'}}>
+                                          <ContactButtonTouch icon={faEnvelope}/>
+                                          <CSSTransition
+                                                in={copied}
+                                                classNames='copied'
+                                                timeout={300}
+                                                unmountOnExit
+                                          >
+                                                <CopiedIndicator>
+                                                      <Text>Copied!</Text>
+                                                </CopiedIndicator>
+                                          </CSSTransition>
+                                    </div>
+                              </CopyToClipboard>
                         </ContactDetailsFader>
-                        
-            
             </ContactDetailsContainer>
             
       )

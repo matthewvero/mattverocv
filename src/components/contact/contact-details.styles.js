@@ -44,17 +44,40 @@ export const ContactDetailsFader = styled.div`
 `
 
 export const ContactButton = styled(FontAwesomeIcon)`
-margin: 0 10px;
+      margin: 0 10px;
       font-size: 3rem;
       color: ${props => props.theme.main};
       cursor: pointer;
       transform: scale(${props => {
             if(props.$active) {
-                  return '0.9'
+                  return '0.98'
             } else if (props.$hovering) {
-                  return '0.95'
+                  return '1.05'
             } else {
                   return '1'
             }
-      }})
+      }});
 `
+export const CopiedIndicator = styled.div`
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  background-color: ${props => props.theme.surface};
+  border-radius: ${props => props.theme.borderRadius};
+  padding: 10px 5px;
+  &.copied-enter {
+		opacity: 0;
+	}
+	&.copied-enter-active {
+            transition: all 100ms ease-out;
+		opacity: 1;
+	}
+	&.copied-exit {
+            opacity: 1;
+	}
+	&.copied-exit-active {
+            transition: all 300ms ease-out;
+		opacity: 0;
+      }
+`;

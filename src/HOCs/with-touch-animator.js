@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const withTouchAnimator = (WrappedComponent) => {
-      return ({children, fn, ...props}) => {
+      return ({children, fn, $ref, ...props}) => {
             const [active, setActive] = useState(false);
             const [hovering, setHovering] = useState(false);
             const [childrenWithProps, setChildrenWithProps] = useState()
@@ -12,7 +12,6 @@ const withTouchAnimator = (WrappedComponent) => {
             };
             const handlePointerUp = (e) => {
               e.preventDefault()
-    
               e.stopPropagation()
               setActive(false);
               fn &&
@@ -30,7 +29,6 @@ const withTouchAnimator = (WrappedComponent) => {
                 setChildrenWithProps( React.cloneElement(children, {$active: active, $hovering: hovering}))
             }, [active, children, hovering])
 
-
             return (
               <WrappedComponent
                 {...props}
@@ -47,4 +45,4 @@ const withTouchAnimator = (WrappedComponent) => {
           };
         };
 
-    export default withTouchAnimator
+    export default withTouchAnimator;

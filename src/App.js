@@ -12,7 +12,6 @@ import { usePageChangeListener } from './ui-custom-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMainMenuVisible } from './redux';
 import { CSSTransition } from 'react-transition-group';
-import ContactDetails from './components/contact/contact-details.component';
 function App({history, match}) {
   const dispatch = useDispatch()
   const handlePageChange = () => {
@@ -37,7 +36,7 @@ function App({history, match}) {
           
             <CSSTransition
               in={match != null}
-              timeout={2000}
+              timeout={600}
               classNames="page"
               unmountOnExit
             >
@@ -52,7 +51,7 @@ function App({history, match}) {
           
             <CSSTransition
               in={match != null}
-              timeout={2000}
+              timeout={600}
               classNames="page"
               unmountOnExit
             >
@@ -67,7 +66,7 @@ function App({history, match}) {
           
             <CSSTransition
               in={match != null}
-              timeout={2000}
+              timeout={600}
               classNames="page"
               unmountOnExit
             >
