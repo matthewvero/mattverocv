@@ -5,6 +5,7 @@ export const MAVLOGO = styled(LOGO)`
       width: 100px; 
       cursor: pointer;
       grid-column: 2/3;
+      
       @media (max-width: 1000px) {
             width: 70px;
       }
@@ -28,14 +29,13 @@ export const HeaderContainer = styled.header`
       left: ${props => props.$popped ? '5vw' : '0'};
       transform: translateY(${props => props.$popped ? '10px' : '0'});
       border-radius: ${props => props.$popped ? props.theme.borderRadius : '0'};
-      backdrop-filter: blur(10px);
       height: 100px;
       padding: 20px 15%;
       display: grid;
       grid-template-columns: 2fr 1fr 2fr;
       box-sizing: border-box;
       justify-items: center;
-      background-color:rgba(50,50,50, 0.5);
+      background-color: ${props => props.theme.surface};
       transition: all ${props => props.$transition ? '200ms' : '0ms'};
       @media (max-width: 1000px) {
             padding: 30px 15px;
