@@ -72,7 +72,7 @@ const Header = ({history}) => {
                         </HeaderLinkTouch>
                   </HeaderNav>
 
-                  <div style={{height: '100%', width: '180px', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                  <div style={{height: '100%', width: '150px', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                   
                         <MobileContactButtonTouch
                               fn={() => dispatch(toggleContactDetails())}

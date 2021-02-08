@@ -11,13 +11,14 @@ export const Page = styled.div`
       justify-content: start;
       box-sizing: border-box;
       overflow: scroll;
+      will-change: opacity, filter;
       &.page-enter {
             filter: blur(5px);
             opacity: 0;
 	}
 	&.page-enter-active {
             position: absolute;
-            transition: opacity 200ms 100ms, filter 100ms ease 200ms;
+            transition: opacity 100ms 100ms, filter 200ms ease 150ms;
             opacity: 1;
             filter: blur(0px);
 	}
@@ -27,7 +28,7 @@ export const Page = styled.div`
 	}
 	&.page-exit-active {
             position: absolute;
-            transition: filter 100ms, opacity 200ms ease 50ms;
+            transition: filter 50ms, opacity 50ms ease 50ms;
             filter: blur(5px);
             opacity: 0;
       }

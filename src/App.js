@@ -51,7 +51,7 @@ function App({history, match}) {
           
             <CSSTransition
               in={match != null}
-              timeout={600}
+              timeout={450}
               classNames="page"
               unmountOnExit
             >
@@ -66,7 +66,7 @@ function App({history, match}) {
           
             <CSSTransition
               in={match != null}
-              timeout={600}
+              timeout={450}
               classNames="page"
               unmountOnExit
             >

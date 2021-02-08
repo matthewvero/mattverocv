@@ -12,6 +12,7 @@ export const ContactDetailsContainer = styled.div`
       transform-origin: top;
       display: flex;
       justify-content: center;
+      will-change: transform;
       &.contactDetails-enter {
 		transform: scaleY(0);
 	}
@@ -37,6 +38,7 @@ export const ContactDetailsFader = styled.div`
       width: 70%;
       height: 100%;
       opacity: 0;
+      will-change: opacity;
       animation: ${fadein} 100ms 150ms forwards 1;
       display: flex;
       align-items: center;

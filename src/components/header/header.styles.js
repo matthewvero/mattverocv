@@ -27,8 +27,6 @@ export const HeaderContainer = styled.header`
       position: fixed;
       width: ${props => props.$popped ? '90vw' : '100vw'};
       left: ${props => props.$popped ? '5vw' : '0'};
-      transform: translateY(${props => props.$popped ? '10px' : '0'});
-      border-radius: ${props => props.$popped ? props.theme.borderRadius : '0'};
       height: 100px;
       padding: 20px 15%;
       display: grid;
@@ -36,7 +34,10 @@ export const HeaderContainer = styled.header`
       box-sizing: border-box;
       justify-items: center;
       background-color: ${props => props.theme.surface};
+      box-shadow: 0 0 10px #151515;
+      border-radius: ${props => props.$popped ? props.theme.borderRadius : '0'};
       transition: all ${props => props.$transition ? '200ms' : '0ms'};
+      transform: translateY(${props => props.$popped ? '10px' : '0'});
       @media (max-width: 1000px) {
             padding: 30px 15px;
             display: flex;
@@ -74,7 +75,6 @@ export const MobileContactButton = styled.div`
       display: none;
       width: 100px;
       height: 40px;
-      border: 2px solid ${props => props.theme.main};
       border-radius: 50px;
       align-items: center;
       justify-content: center;
