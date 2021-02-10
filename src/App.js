@@ -5,13 +5,15 @@ import {
   withRouter,
 } from "react-router-dom";
 import Homepage from './pages/homepage/homepage';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components/macro';
 import {themeLight} from './theme'
 import AboutMePage from './pages/aboutme/about-me-page.component';
 import { usePageChangeListener } from './ui-custom-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMainMenuVisible } from './redux';
 import { CSSTransition } from 'react-transition-group';
+import EducationPage from './pages/education/education-page.component';
+import { PageShifter } from './pages/page.styles';
 function App({history, match}) {
   const dispatch = useDispatch()
   const handlePageChange = () => {
@@ -28,7 +30,7 @@ function App({history, match}) {
         
           
           
-        <div className='ting' style={{paddingTop: contactVisible ? '200px' : '100px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <PageShifter $shift={contactVisible}>
           
           <Route exact path='/'>
 
@@ -61,7 +63,6 @@ function App({history, match}) {
           </Route>
 
           <Route exact path='/about'>
-
             {({ match }) => (
           
             <CSSTransition
@@ -74,9 +75,23 @@ function App({history, match}) {
             </CSSTransition>
             )}
           </Route>
-            
-        </div>
-      </ThemeProvider>
+
+          <Route exact path='/education'>
+            {({ match }) => (
+        
+              <CSSTransition
+                in={match != null}
+                timeout={450}
+                classNames="page"
+                unmountOnExit
+              >
+                <EducationPage/>
+              </CSSTransition>
+            )}
+          </Route>
+
+          </PageShifter>
+        </ThemeProvider>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from 'styled-components'
+import { ThemeContext } from 'styled-components/macro'
 import { InfoCard, TitleCard } from '../../components/containers.styles'
 import { HR } from '../../components/misc.styles'
 import { SubTitle, Text, Title } from '../../components/text.styles'

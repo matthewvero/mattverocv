@@ -91,8 +91,6 @@ const Header = ({history}) => {
                         timeout={200}
                         unmountOnExit
                         classNames='contactDetails'
-                        
-
                   >
                         <ContactDetails />
                   </CSSTransition>

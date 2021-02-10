@@ -6,7 +6,7 @@ import { setMainMenuVisible, toggleMainMenu } from '../../redux.js';
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { ThemeContext } from 'styled-components';
+import { ThemeContext } from 'styled-components/macro';
 import { Text } from '../text.styles';
 import { HR } from '../misc.styles';
 import withTouchAnimator from '../../HOCs/with-touch-animator';

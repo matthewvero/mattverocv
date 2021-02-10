@@ -1,5 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components/macro';
+const fadein = keyframes`
+      0% {opacity: 0%;}
+      100% {opacity: 100%;}
+`
 
 export const ContactDetailsContainer = styled.div`
       height: 100px;
@@ -12,7 +16,7 @@ export const ContactDetailsContainer = styled.div`
       transform-origin: top;
       display: flex;
       justify-content: center;
-      will-change: transform;
+
       &.contactDetails-enter {
 		transform: scaleY(0);
 	}
@@ -27,18 +31,25 @@ export const ContactDetailsContainer = styled.div`
             transition: all 100ms ease-out;
 		transform: scaleY(0);
       }
+      &::before {
+            content: ' ';
+            opacity: 0;
+            animation: ${fadein} 500ms 200ms forwards 1;
+            z-index: -1;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            height: 90%;
+            width: 100%;
+            border-radius: ${props => props.theme.borderRadius};
+            box-shadow: 0 0 10px #151515;
+      }
 `;    
-
-const fadein = keyframes`
-      0% {opacity: 0%;}
-      100% {opacity: 100%;}
-`
 
 export const ContactDetailsFader = styled.div`
       width: 70%;
       height: 100%;
       opacity: 0;
-      will-change: opacity;
       animation: ${fadein} 100ms 150ms forwards 1;
       display: flex;
       align-items: center;

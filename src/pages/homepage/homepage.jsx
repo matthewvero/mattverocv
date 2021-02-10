@@ -14,7 +14,7 @@ import gitIcon from '@iconify-icons/simple-icons/git';
 import firebaseIcon from '@iconify-icons/simple-icons/firebase';
 import mongodbIcon from '@iconify-icons/simple-icons/mongodb';
 import { HomepageGrid } from './homepage.styles';
-import { ThemeContext } from 'styled-components';
+import { ThemeContext } from 'styled-components/macro';
 import {Button} from '../../components/button.styles.js';
 import { withRouter } from 'react-router-dom';
 import {HR} from '../../components/misc.styles.js'
@@ -29,13 +29,13 @@ const Homepage = ({history}) => {
                               <TitleCard style={{gridColumn: '1/3', gridRow: '1/2', order: '1'}}>
                                     <Title style={{marginBottom: '10px'}}>Junior Front End Developer</Title>
                                     <HR header />
-                                    <SubTitle style={{marginTop: '0', width: '80%'}}>
+                                    <SubTitle style={{marginTop: '10px'}}>
                                           Front end developer with experience using the React ecosystem 
                                           to create responsive and easy to use SPAs
                                     </SubTitle>
                               </TitleCard>
                               
-                              <InfoCard style={{order: '2'}}>
+                              <InfoCard style={{order: '2', paddingBottom: '90px'}}>
                                     <SubTitle style={{color: theme.main, margin: '5px 0'}}>About Me</SubTitle>
                                     <HR header />
                                     <Text style={{marginBottom: '10px'}}>
@@ -46,16 +46,16 @@ const Homepage = ({history}) => {
                                           I have many long term goals but No.1 on my list is to become a crucial, 
                                           valued member of a team doing work I genuinely believe in. 
                                     </Text>
-                                    <ButtonTouch style={{margin: '10px 0', alignSelf: 'end'}} fn={() => history.push('/about')}>
+                                    <ButtonTouch style={{margin: '10px 0', position: 'absolute', bottom: '10px'}} fn={() => history.push('/about')}>
                                           <Text style={{color: theme.main}}>See More...</Text>
                                     </ButtonTouch>
                               </InfoCard>
-                              <InfoCard style={{order: '3'}}>
+                              <InfoCard style={{order: '3', paddingBottom: '90px'}}>
                                     <SubTitle style={{color: theme.main, margin: '5px 0'}}>Education</SubTitle>
                                     <HR header />
                                     <Text style={{marginBottom: '10px'}}>
-                                          I learned everything front end using the extensive resources on the internet, 
-                                          including multiple Udemy Courses, youtube, MDN etc. and fell in love with developing in the process. 
+                                          I have learned everything front end using the extensive resources on the internet, 
+                                          including multiple Udemy Courses, YouTube, MDN etc. and fell in love with developing in the process. 
 
                                     </Text>
                                     <Text>
@@ -63,11 +63,11 @@ const Homepage = ({history}) => {
                                           so once I passed I started working part time and began learning to code. 
 
                                     </Text>
-                                    <ButtonTouch style={{margin: '10px 0', alignSelf: 'end'}} fn={() => history.push('/education')}>
+                                    <ButtonTouch style={{margin: '10px 0', position: 'absolute', bottom: '10px'}} fn={() => history.push('/education')}>
                                           <Text style={{color: theme.main}}>See More...</Text>
                                     </ButtonTouch>
                               </InfoCard>
-                              <div style={{width: '100%', gridColumn: '1/3', order: '4'}}>
+                              <div style={{width: '100%', gridColumn: '1/3', order: '4', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                                     <Title style={{color: theme.text, marginBottom: '0'}}>
                                           Skills
                                     </Title>
