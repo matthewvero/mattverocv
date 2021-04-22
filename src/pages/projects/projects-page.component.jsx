@@ -67,31 +67,39 @@ const ProjectsPage = ({ $ref }) => {
 							</Text>
 						</React.Fragment>
 					</ProjectCardTouch>
+
+					<ProjectCardTouch
+						$imageURL="https://printrat.sirv.com/cv/Screenshot%202021-02-10%20at%2022.41.03.png"
+						githubUrl="https://github.com/matthewvero/fox-garage"
+						liveUrl="https://foxgarage.herokuapp.com/"
+						technologies={[
+							"ReactJS",
+							"Styled-Components",
+						]}
+						left
+					>
+						<React.Fragment>
+							<SubTitle
+								style={{ color: theme.main }}
+							>
+								Fox Garage website proof of
+								concept
+							</SubTitle>
+							<HR style={{ margin: "10px" }} />
+							<Text>
+								My first major React project,
+								This was a proof of concept for
+								a replacement website. I really
+								enjoyed this one and learnt a
+								lot about React doing it.
+							</Text>
+							<Text>
+								This is largely none functional
+								as it was a mock up.
+							</Text>
+						</React.Fragment>
+					</ProjectCardTouch>
 				</ProjectsPageGrid>
-				<ProjectCardTouch
-					$imageURL="https://printrat.sirv.com/cv/Screenshot%202021-02-10%20at%2022.41.03.png"
-					githubUrl="https://github.com/matthewvero/fox-garage"
-					liveUrl="https://foxgarage.herokuapp.com/"
-					technologies={["ReactJS", "Styled-Components"]}
-					left
-				>
-					<React.Fragment>
-						<SubTitle style={{ color: theme.main }}>
-							Fox Garage website proof of concept
-						</SubTitle>
-						<HR style={{ margin: "10px" }} />
-						<Text>
-							My first major React project, This was
-							a proof of concept for a replacement
-							website. I really enjoyed this one and
-							learnt a lot about React doing it.
-						</Text>
-						<Text>
-							This is largely none functional as it
-							was a mock up.
-						</Text>
-					</React.Fragment>
-				</ProjectCardTouch>
 			</TitleCard>
 		</Page>
 	);
