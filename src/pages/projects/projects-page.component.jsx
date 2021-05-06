@@ -19,14 +19,14 @@ const ProjectsPage = ({ $ref }) => {
 				<ProjectsPageGrid>
 					<ProjectCardTouch
 						$imageURL="https://printrat.sirv.com/cv/Screenshot%202021-04-22%20at%2023.48.02.png"
-						githubUrl="https://github.com/matthewvero/netflix-clone"
-						liveUrl="https://netflix-clone-978d0.web.app"
-						technologies={[
+						$githubUrl="https://github.com/matthewvero/netflix-clone"
+						$liveUrl="https://netflix-clone-978d0.web.app"
+						$technologies={[
 							"ReactJS",
 							"Firebase",
 							"Styled-Components",
 						]}
-						left
+						$left
 					>
 						<React.Fragment>
 							<SubTitle
@@ -38,15 +38,17 @@ const ProjectsPage = ({ $ref }) => {
 							<Text>
 								WIP. This will be a clone of the
 								Netflix interface. I'll make use
-								of APIs to populate the films.
+								of APIs to populate the films
+								and Firebase to authenticate
+								users.
 							</Text>
 						</React.Fragment>
 					</ProjectCardTouch>
 					<ProjectCardTouch
 						$imageURL="https://printrat.sirv.com/cv/Screenshot%202021-02-19%20at%2016.46.06.png"
-						githubUrl="https://github.com/matthewvero/yelp-camp-react"
-						liveUrl="https://yelpcamp-d57d1.web.app/"
-						technologies={[
+						$githubUrl="https://github.com/matthewvero/yelp-camp-react"
+						$liveUrl="https://yelpcamp-d57d1.web.app/"
+						$technologies={[
 							"ReactJS",
 							"Firebase",
 							"Styled-Components",
@@ -65,18 +67,22 @@ const ProjectsPage = ({ $ref }) => {
 								Firebase. Think airbnb but for
 								camps.
 							</Text>
+							<Text>
+								What I like: I really enjoyed
+								making
+							</Text>
 						</React.Fragment>
 					</ProjectCardTouch>
 
 					<ProjectCardTouch
 						$imageURL="https://printrat.sirv.com/cv/Screenshot%202021-02-10%20at%2022.41.03.png"
-						githubUrl="https://github.com/matthewvero/fox-garage"
-						liveUrl="https://foxgarage.herokuapp.com/"
-						technologies={[
+						$githubUrl="https://github.com/matthewvero/fox-garage"
+						$liveUrl="https://foxgarage.herokuapp.com/"
+						$technologies={[
 							"ReactJS",
 							"Styled-Components",
 						]}
-						left
+						$left
 					>
 						<React.Fragment>
 							<SubTitle

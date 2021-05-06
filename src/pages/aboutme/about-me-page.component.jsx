@@ -58,9 +58,6 @@ const AboutMePage = ({ $ref }) => {
 						Create work my team and I can be proud of.
 					</Text>
 					<HR style={{ width: "40%" }} />
-
-					<Text>Make it look easy.</Text>
-					<HR style={{ width: "40%" }} />
 				</InfoCard>
 				<InfoCard style={{ order: "4", gridColumn: "1/3" }}>
 					<SubTitle style={{ color: theme.main }}>
