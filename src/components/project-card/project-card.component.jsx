@@ -82,6 +82,7 @@ const ProjectCard = ({
 								width: "50%",
 								justifyContent: "space-around",
 								alignItems: "center",
+								alignSelf: "center",
 							}}
 						>
 							<IconButtonTouch

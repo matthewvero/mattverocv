@@ -24,6 +24,17 @@ export const MAVLOGO = styled(LOGO)`
 	);
 	transition: all 100ms ease-out;
 	filter: drop-shadow(10px);
+	&:after {
+		content: " ";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 70%;
+		transform: translateX(-50%);
+		border-bottom: 3px
+			${(props) => (props.$open ? props.theme.main : "transparent")}
+			solid;
+	}
 `;
 
 export const HeaderContainer = styled.header`
@@ -63,7 +74,30 @@ export const HeaderLink = styled.div`
 	cursor: pointer;
 	transform: scale(${(props) => (props.$active ? "0.95" : "1")});
 	transition: transform 50ms ease-out;
+	position: relative;
+
+	&:after {
+		content: " ";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 70%;
+		transform: translateX(-50%);
+		border-bottom: 3px
+			${(props) => (props.$open ? props.theme.main : "transparent")}
+			solid;
+	}
 `;
+
+export const HeaderPageIndicator = styled.div`
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	height: 2px;
+	width: 80%;
+	background-color: ${(props) => props.theme.main};
+`;
+
 export const HeaderNav = styled.nav`
 	height: 100%;
 	width: 100%;
@@ -75,6 +109,7 @@ export const HeaderNav = styled.nav`
 		display: none;
 	}
 `;
+
 export const MobileContactButton = styled.div`
 	display: none;
 	width: 100px;

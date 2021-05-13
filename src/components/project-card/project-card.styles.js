@@ -1,6 +1,7 @@
 /** @format */
 
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components/macro";
+import { Text } from "../text.styles";
 
 export const ProjectCardContainer = styled.div`
 	position: relative;
@@ -9,9 +10,9 @@ export const ProjectCardContainer = styled.div`
 	display: flex;
 	background-color: ${(props) => props.theme.surface};
 	border-radius: ${(props) => props.theme.borderRadius};
-	/* @media (max-width: 1200px) {
+	@media (max-width: 1200px) {
 		width: 70%;
-	} */
+	}
 	@media (max-width: 950px) {
 		width: 100%;
 		transform: translateX(
@@ -52,6 +53,17 @@ export const ProjectCardContentFader = styled.div`
 		transition: all 100ms ease-out;
 		opacity: 0;
 		transform: scale(0.8);
+	}
+	@media (max-width: 950px) {
+		align-items: flex-start;
+		${Text} {
+			text-align: left;
+			padding-right: 50px;
+		}
+		${Text}:last-child {
+			text-align: center;
+			padding-right: 0;
+		}
 	}
 `;
 
@@ -137,18 +149,25 @@ export const TechCard = styled.div`
 export const SkillsShiftButton = styled.div`
 	display: none;
 	position: absolute;
-	bottom: 50%;
-	right: 5%;
+	top: 0;
+	right: 0;
 	color: ${(props) => props.theme.main};
-	height: 20px;
-	width: auto;
+	height: 100%;
+	width: 100px;
 	z-index: 1000;
 	cursor: pointer;
-	transform: translateY(50%);
 	font-size: 1.2rem;
 	transition: all 50ms linear;
-	padding: 20px;
+	align-items: center;
+	justify-content: center;
 	@media (max-width: 950px) {
-		display: block;
+		display: flex;
+		&:hover {
+			background: linear-gradient(
+				90deg,
+				rgba(255, 255, 255, 0) 0%,
+				rgba(50, 50, 50, 1) 100%
+			);
+		}
 	}
 `;
