@@ -18,7 +18,7 @@ export const ProjectCardContainer = styled.div`
 		transform: translateX(
 			${(props) => (props.$shift ? "-150px" : "0")}
 		);
-		transition: transform 100ms ease;
+		transition: transform 200ms ease;
 	}
 `;
 
@@ -71,6 +71,16 @@ export const ProjectCardBackground = styled(ProjectCardContentFader)`
 	background-image: url(${(props) => props.$imageURL});
 	background-position: center;
 	background-size: cover;
+	cursor: pointer;
+`;
+
+const animation = keyframes`
+	from {
+		background-color: transparent;
+	}
+	to {
+		background-color: rgba(10, 10, 10, 0.5);
+	}
 `;
 
 export const ProjectCardSideBar = styled.div`
@@ -86,7 +96,7 @@ export const ProjectCardSideBar = styled.div`
 		transform: scaleX(0) scaleY(1);
 	}
 	&.sidebar-enter-active {
-		transition: all 100ms 100ms ease-out;
+		transition: all 200ms ease;
 
 		transform: scaleX(1) scaleY(1);
 	}
@@ -110,6 +120,7 @@ export const ProjectCardSideBar = styled.div`
 			position: absolute;
 			top: 0;
 			left: -1000px;
+			animation: ${animation} 300ms 1 ease;
 		}
 	}
 	@media (min-width: 950px) {
@@ -163,11 +174,9 @@ export const SkillsShiftButton = styled.div`
 	@media (max-width: 950px) {
 		display: flex;
 		&:hover {
-			background: linear-gradient(
-				90deg,
-				rgba(255, 255, 255, 0) 0%,
-				rgba(50, 50, 50, 1) 100%
-			);
-		}
+			background: ${(props) =>
+				props.$shift
+					? "transparent)"
+					: "linear-gradient(90deg,rgba(255, 255, 255, 0) 0%,rgba(30, 30, 30, 1) 100%);"}
 	}
 `;

@@ -43,7 +43,7 @@ const withTouchAnimator = (WrappedComponent) => {
 				onPointerDown={(e) => handlePointerDown(e)}
 				onPointerUp={(e) => handlePointerUp(e)}
 				onMouseLeave={handleMouseLeave}
-				onMouseEnter={handleMouseEnter}
+				onMouseOver={handleMouseEnter}
 			>
 				{childrenWithProps ? childrenWithProps : children}
 			</WrappedComponent>

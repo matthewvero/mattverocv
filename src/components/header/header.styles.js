@@ -24,17 +24,6 @@ export const MAVLOGO = styled(LOGO)`
 	);
 	transition: all 100ms ease-out;
 	filter: drop-shadow(10px);
-	&:after {
-		content: " ";
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		width: 70%;
-		transform: translateX(-50%);
-		border-bottom: 3px
-			${(props) => (props.$open ? props.theme.main : "transparent")}
-			solid;
-	}
 `;
 
 export const HeaderContainer = styled.header`

@@ -21,6 +21,7 @@ import { faChevronRight, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const ProjectCard = ({
 	$hovering,
+	$active,
 	$imageURL,
 	children,
 	$technologies,
@@ -29,6 +30,7 @@ const ProjectCard = ({
 	$left,
 	...props
 }) => {
+	const [flip, setFlip] = useState(false);
 	const [shift, setShift] = useState(false);
 	const faderRef = useRef(null);
 	const backgroundRef = useRef(null);
@@ -47,7 +49,10 @@ const ProjectCard = ({
 		if ($hovering === false) {
 			setShift(false);
 		}
-	}, [$hovering]);
+		if ($active === true) {
+			setFlip(true);
+		}
+	}, [$active, $hovering]);
 
 	return (
 		<React.Fragment>
@@ -104,6 +109,7 @@ const ProjectCard = ({
 							onPointerDown={() =>
 								setShift((shift) => !shift)
 							}
+							$shift={shift}
 						>
 							{shift ? (
 								<FontAwesomeIcon
@@ -121,7 +127,7 @@ const ProjectCard = ({
 					</ProjectCardContentFader>
 				</CSSTransition>
 				<CSSTransition
-					in={$technologies && $hovering === true}
+					in={$technologies && shift === true}
 					classNames="sidebar"
 					timeout={200}
 					unmountOnExit
