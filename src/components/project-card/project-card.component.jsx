@@ -30,7 +30,6 @@ const ProjectCard = ({
 	$left,
 	...props
 }) => {
-	const [flip, setFlip] = useState(false);
 	const [shift, setShift] = useState(false);
 	const faderRef = useRef(null);
 	const backgroundRef = useRef(null);
@@ -48,9 +47,6 @@ const ProjectCard = ({
 	useEffect(() => {
 		if ($hovering === false) {
 			setShift(false);
-		}
-		if ($active === true) {
-			setFlip(true);
 		}
 	}, [$active, $hovering]);
 
@@ -94,16 +90,18 @@ const ProjectCard = ({
 								icon={faGithub}
 								fn={handleGithubClick}
 							/>
-							<ButtonTouch
-								style={{
-									maxHeight: "75%",
-									width: "50%",
-									padding: "0 10px",
-								}}
-								fn={handleLiveClick}
-							>
-								<Text>Live Site</Text>
-							</ButtonTouch>
+							{$liveUrl && (
+								<ButtonTouch
+									style={{
+										maxHeight: "75%",
+										width: "50%",
+										padding: "0 10px",
+									}}
+									fn={handleLiveClick}
+								>
+									<Text>Live Site</Text>
+								</ButtonTouch>
+							)}
 						</div>
 						<SkillsShiftButton
 							onPointerDown={() =>
@@ -127,7 +125,7 @@ const ProjectCard = ({
 					</ProjectCardContentFader>
 				</CSSTransition>
 				<CSSTransition
-					in={$technologies && shift === true}
+					in={$technologies && $hovering}
 					classNames="sidebar"
 					timeout={200}
 					unmountOnExit

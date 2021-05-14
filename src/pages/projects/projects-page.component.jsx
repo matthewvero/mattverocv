@@ -15,7 +15,14 @@ const ProjectsPage = ({ $ref }) => {
 	return (
 		<Page ref={$ref}>
 			<TitleCard>
-				<Title>My Projects</Title>
+				<Title style={{ marginBottom: "20px" }}>
+					My Projects
+				</Title>
+				<HR />
+				<SubTitle>
+					Check out the Readme documents on github for a
+					detailed break down!
+				</SubTitle>
 				<ProjectsPageGrid>
 					<ProjectCardTouch
 						$imageURL="https://printrat.sirv.com/cv/Screenshot%202021-04-22%20at%2023.48.02.png"
@@ -75,9 +82,8 @@ const ProjectsPage = ({ $ref }) => {
 					</ProjectCardTouch>
 
 					<ProjectCardTouch
-						$imageURL="https://printrat.sirv.com/cv/Screenshot%202021-02-10%20at%2022.41.03.png"
-						$githubUrl="https://github.com/matthewvero/fox-garage"
-						$liveUrl="https://foxgarage.herokuapp.com/"
+						$imageURL="https://printrat.sirv.com/cv/Screenshot%202021-05-14%20at%2016.14.18.png?cy=2&ch=1378"
+						$githubUrl="https://github.com/matthewvero/mattverocv"
 						$technologies={[
 							"ReactJS",
 							"Styled-Components",
@@ -88,20 +94,22 @@ const ProjectsPage = ({ $ref }) => {
 							<SubTitle
 								style={{ color: theme.main }}
 							>
-								Fox Garage website proof of
-								concept
+								mattvero.com
 							</SubTitle>
 							<HR style={{ margin: "10px" }} />
 							<Text>
-								My first major React project,
-								This was a proof of concept for
-								a replacement website. I really
-								enjoyed this one and learnt a
-								lot about React doing it.
+								This website! This is a fun
+								project that I'm continually
+								improving and adding to. Now to
+								add some images.
 							</Text>
 							<Text>
-								This is largely none functional
-								as it was a mock up.
+								I really enjoyed developing in
+								my own style, the project cards
+								were fun exercise in showing
+								information in a dense format,
+								although I think there are still
+								improvements to be made.
 							</Text>
 						</React.Fragment>
 					</ProjectCardTouch>

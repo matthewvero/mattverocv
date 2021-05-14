@@ -176,7 +176,13 @@ export const SkillsShiftButton = styled.div`
 		&:hover {
 			background: ${(props) =>
 				props.$shift
-					? "transparent)"
-					: "linear-gradient(90deg,rgba(255, 255, 255, 0) 0%,rgba(30, 30, 30, 1) 100%);"}
+					? "transparent"
+					: "linear-gradient(90deg,rgba(255, 255, 255, 0) 0%,rgba(30, 30, 30, 1) 100%); -webkit-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(30,30,30,1) 100%);"};
+		}
+	}
+	@media (max-width: 500px) {
+		&:hover {
+			background: transparent;
+		}
 	}
 `;

@@ -23,6 +23,9 @@ export const Button = styled.div`
 	justify-content: space-around;
 	align-items: center;
 	cursor: pointer;
+	@media (max-width: 500px) {
+		height: 35px;
+	}
 `;
 
 export const IconButton = styled(FontAwesomeIcon)`
