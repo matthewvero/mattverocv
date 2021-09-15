@@ -56,7 +56,7 @@ const ContactDetails = ({ $visible }) => {
 							unmountOnExit
 						>
 							<CopiedIndicator>
-								<Text>Copied!</Text>
+								<Text >Copied!</Text>
 							</CopiedIndicator>
 						</CSSTransition>
 					</div>

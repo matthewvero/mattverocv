@@ -8,8 +8,9 @@ export const ProjectCardContainer = styled.div`
 	width: 100%;
 	height: 350px;
 	display: flex;
-	background-color: ${(props) => props.theme.surface};
+	background-color: #151515;
 	border-radius: ${(props) => props.theme.borderRadius};
+
 	@media (max-width: 1200px) {
 		width: 70%;
 	}
@@ -88,7 +89,7 @@ export const ProjectCardSideBar = styled.div`
 	width: 150px;
 	color: white;
 	position: absolute;
-	background-color: ${(props) => props.theme.surface};
+	background-color: #151515;
 	z-index: 10;
 	transform-origin: ${(props) => (props.$left ? "right" : "left")};
 	border-radius: ${(props) => props.theme.borderRadius};
@@ -124,7 +125,7 @@ export const ProjectCardSideBar = styled.div`
 		}
 	}
 	@media (min-width: 950px) {
-		${(props) => (props.$left ? "left: -148px;" : "right: -148px;")}
+		${(props) => (props.$left ? "left: -155px;" : "right: -155px;")}
 	}
 `;
 
@@ -141,7 +142,7 @@ export const ProjectCardSideBarContent = styled.div`
 	justify-content: flex-start;
 	align-items: center;
 	opacity: 0;
-	animation: ${fadein} 100ms 250ms forwards 1;
+	animation: ${fadein} 200ms 250ms forwards 1;
 	padding: 10px 0;
 `;
 
@@ -149,8 +150,8 @@ export const TechCard = styled.div`
 	height: auto;
 	width: 80%;
 	padding: 5px;
-	background-color: ${(props) => props.theme.background};
-	border-radius: 10px;
+	background-color: transparent;
+	
 	display: grid;
 	place-items: center;
 	color: ${(props) => props.theme.main};

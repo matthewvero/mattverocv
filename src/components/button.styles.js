@@ -6,7 +6,7 @@ import styled from "styled-components/macro";
 export const Button = styled.div`
 	width: 50%;
 	height: 50px;
-	border: 2px solid ${(props) => props.theme.main};
+	border: ${props => props.theme.border};
 	border-radius: ${(props) => props.theme.borderRadius};
 	transform: scale(
 		${(props) => {

@@ -30,8 +30,8 @@ const Homepage = ({ history, $ref }) => {
 	const theme = useContext(ThemeContext);
 	const ButtonTouch = withTouchAnimator(Button);
 	return (
-		<Page ref={$ref}>
-			<HomepageGrid>
+		<Page ref={$ref} id='homepage'>
+			<HomepageGrid >
 				<TitleCard
 					style={{
 						gridColumn: "1/3",
@@ -40,7 +40,7 @@ const Homepage = ({ history, $ref }) => {
 					}}
 				>
 					<Title style={{ marginBottom: "10px" }}>
-						Junior Front End Developer
+						Front End Developer
 					</Title>
 					<HR $header />
 					<SubTitle style={{ marginTop: "10px" }}>
@@ -49,7 +49,52 @@ const Homepage = ({ history, $ref }) => {
 						easy to use web apps.
 					</SubTitle>
 				</TitleCard>
-
+				
+				<SkillCardsContainer
+				style={{ gridColumn: "1/3", order: "2" }}
+			>
+				<SkillCard>
+					<Text>React</Text>
+					<SkillCardIcon icon={reactIcon} />
+				</SkillCard>
+				<SkillCard>
+					<Text>Redux</Text>
+					<SkillCardIcon icon={reduxIcon} />
+				</SkillCard>
+				<SkillCard>
+					<Text>JavaScript</Text>
+					<SkillCardIcon icon={javascriptIcon} />
+				</SkillCard>
+				<SkillCard>
+					<Text>Styled-Components</Text>
+					<SkillCardIcon icon={styledComponents} />
+				</SkillCard>
+				<SkillCard>
+					<Text>CSS</Text>
+					<SkillCardIcon icon={css3Icon} />
+				</SkillCard>
+				<SkillCard>
+					<Text>HTML</Text>
+					<SkillCardIcon icon={html5Icon} />
+				</SkillCard>
+				<SkillCard>
+					<Text>NodeJS</Text>
+					<SkillCardIcon icon={nodeDotJs} />
+				</SkillCard>
+				<SkillCard>
+					<Text>Git / Version Control</Text>
+					<SkillCardIcon icon={gitIcon} />
+				</SkillCard>
+				<SkillCard>
+					<Text>Firebase</Text>
+					<SkillCardIcon icon={firebaseIcon} />
+				</SkillCard>
+				<SkillCard>
+					<Text>MongoDB</Text>
+					<SkillCardIcon icon={mongodbIcon} />
+				</SkillCard>
+				
+			</SkillCardsContainer>
 				<InfoCard style={{ order: "2", paddingBottom: "90px" }}>
 					<SubTitle
 						style={{
@@ -61,7 +106,7 @@ const Homepage = ({ history, $ref }) => {
 					</SubTitle>
 					<HR $header />
 					<Text style={{ marginBottom: "10px" }}>
-						I'm Matt Vero, a self taught front end
+						I'm a self taught front end
 						developer motivated by a passion for
 						learning, fast-paced work and asking lots of
 						questions.
@@ -121,70 +166,8 @@ const Homepage = ({ history, $ref }) => {
 						</Text>
 					</ButtonTouch>
 				</InfoCard>
-				<div
-					style={{
-						width: "100%",
-						gridColumn: "1/3",
-						order: "4",
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}
-				>
-					<Title
-						style={{
-							color: theme.text,
-							marginBottom: "0",
-						}}
-					>
-						Skills
-					</Title>
-					<HR $header />
-				</div>
-				<SkillCardsContainer
-					style={{ gridColumn: "1/3", order: "5" }}
-				>
-					<SkillCard>
-						<Text>React</Text>
-						<SkillCardIcon icon={reactIcon} />
-					</SkillCard>
-					<SkillCard>
-						<Text>Redux</Text>
-						<SkillCardIcon icon={reduxIcon} />
-					</SkillCard>
-					<SkillCard>
-						<Text>JavaScript</Text>
-						<SkillCardIcon icon={javascriptIcon} />
-					</SkillCard>
-					<SkillCard>
-						<Text>Styled-Components</Text>
-						<SkillCardIcon icon={styledComponents} />
-					</SkillCard>
-					<SkillCard>
-						<Text>CSS</Text>
-						<SkillCardIcon icon={css3Icon} />
-					</SkillCard>
-					<SkillCard>
-						<Text>HTML</Text>
-						<SkillCardIcon icon={html5Icon} />
-					</SkillCard>
-					<SkillCard>
-						<Text>NodeJS</Text>
-						<SkillCardIcon icon={nodeDotJs} />
-					</SkillCard>
-					<SkillCard>
-						<Text>Git / Version Control</Text>
-						<SkillCardIcon icon={gitIcon} />
-					</SkillCard>
-					<SkillCard>
-						<Text>Firebase</Text>
-						<SkillCardIcon icon={firebaseIcon} />
-					</SkillCard>
-					<SkillCard>
-						<Text>MongoDB</Text>
-						<SkillCardIcon icon={mongodbIcon} />
-					</SkillCard>
-				</SkillCardsContainer>
+				
+				
 			</HomepageGrid>
 		</Page>
 	);

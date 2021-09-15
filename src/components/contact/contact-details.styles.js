@@ -10,15 +10,13 @@ const fadein = keyframes`
 export const ContactDetailsContainer = styled.div`
 	height: 100px;
 	width: 100%;
-	background-color: ${(props) => props.theme.surface};
-	border-radius: ${(props) => props.theme.borderRadius};
 	position: absolute;
-	bottom: -91%;
+	bottom: -100%;
 	left: 0;
 	transform-origin: top;
 	display: flex;
 	justify-content: center;
-
+	
 	&.contactDetails-enter {
 		transform: scaleY(0);
 	}
@@ -38,12 +36,12 @@ export const ContactDetailsContainer = styled.div`
 		animation: ${fadein} 500ms 200ms forwards 1;
 		z-index: -1;
 		position: absolute;
-		top: 10%;
+		top: 0%;
 		left: 0;
 		height: 90%;
 		width: 100%;
 		border-radius: ${(props) => props.theme.borderRadius};
-		box-shadow: 0 0 10px #151515;
+		
 	}
 `;
 
@@ -79,8 +77,9 @@ export const CopiedIndicator = styled.div`
 	left: 50%;
 	bottom: 50%;
 	transform: translate(-50%, 50%);
-	background-color: ${(props) => props.theme.surface};
+	background-color: rgba(255,255,255, 0.8);
 	border-radius: ${(props) => props.theme.borderRadius};
+	
 	padding: 10px 5px;
 	&.copied-enter {
 		opacity: 0;

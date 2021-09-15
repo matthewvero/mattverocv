@@ -14,8 +14,8 @@ const EducationPage = ({ history, $ref }) => {
 	const theme = useContext(ThemeContext);
 	const ButtonTouch = withTouchAnimator(Button);
 	return (
-		<Page ref={$ref}>
-			<EducationPageGrid>
+		<Page ref={$ref} id='education'>
+			<EducationPageGrid >
 				<TitleCard style={{ gridColumn: "1/3" }}>
 					<Title>Education</Title>
 				</TitleCard>

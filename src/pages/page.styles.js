@@ -3,33 +3,16 @@
 import styled from "styled-components/macro";
 
 export const Page = styled.div`
-	height: auto;
+	height: 100vh;
 	width: 100%;
 	display: grid;
-	padding: 20px;
-	padding-bottom: 40px;
-	padding-top: 5px;
+	padding: 20px;	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: start;
 	box-sizing: border-box;
-	&.page-enter {
-		opacity: 0;
-	}
-	&.page-enter-active {
-		position: absolute;
-		transition: opacity 100ms 100ms;
-		opacity: 1;
-	}
-	&.page-exit {
-		opacity: 1;
-	}
-	&.page-exit-active {
-		position: absolute;
-		transition: opacity 100ms;
-		opacity: 0;
-	}
+	
 `;
 
 export const PageGrid = styled.section`

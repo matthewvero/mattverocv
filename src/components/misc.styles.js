@@ -4,8 +4,7 @@ import styled from "styled-components/macro";
 
 export const HR = styled.hr`
 	width: ${(props) => (props.$header ? "70%" : "40%")};
-	border: solid 1px
-		${(props) => (props.$header ? props.theme.main : "#333")};
+	border: solid 1px transparent;
 	margin: 0px auto;
 	margin-bottom: 10px;
 `;

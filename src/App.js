@@ -1,125 +1,53 @@
 /** @format */
 
 import "./App.css";
-import React from "react";
-import Header from "./components/header/header.component";
-import { Route, withRouter } from "react-router-dom";
-import Homepage from "./pages/homepage/homepage";
+import React, { useEffect, useRef } from "react";
+import { withRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components/macro";
 import { theme } from "./theme";
-import AboutMePage from "./pages/aboutme/about-me-page.component";
 import { usePageChangeListener } from "./ui-custom-hooks";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setMainMenuVisible } from "./redux";
-import { CSSTransition } from "react-transition-group";
+import Header from "./components/header/header.component";
+import Homepage from "./pages/homepage/homepage";
+import AboutMePage from "./pages/aboutme/about-me-page.component";
 import EducationPage from "./pages/education/education-page.component";
-import { PageShifter } from "./pages/page.styles";
 import ProjectsPage from "./pages/projects/projects-page.component";
-function App({ history, match }) {
-	const dispatch = useDispatch();
-	const routes = {
-		home: "/",
-		about: "/about",
-		education: "/education",
-		projects: "/projects",
-	};
-	const refs = {
-		[routes.home]: React.createRef(null),
-		[routes.about]: React.createRef(null),
-		[routes.education]: React.createRef(null),
-		[routes.projects]: React.createRef(null),
-	};
 
-	const handlePageChange = () => {
-		window.scrollTo(0, 0);
+function App({ history }) {
+	const dispatch = useDispatch();
+	const appRef = useRef();
+
+
+	const handlePageChange = (pathname) => {
+		const pagename = pathname.split('/')[1];
+		const page = document.getElementById(pagename);
+		if(!pagename) {
+			appRef.current.scrollTo({top: '0', behavior: 'smooth'});
+		} else {
+			appRef.current.scrollTo({top: page.offsetTop, behavior: 'smooth'});
+
+		}
+
 		dispatch(setMainMenuVisible(false));
 	};
-	// Check if page changes and reset scroll.
+	// Check if page changes and close page.
 	usePageChangeListener(history, handlePageChange);
-	const contactVisible = useSelector(
-		(state) => state.contactDetails.visible
-	);
+
+	
 
 	return (
-		<div className="App">
+		<div className="App" ref={appRef}>
 			<ThemeProvider theme={theme}>
-				<Header />
+				<Header $appRef={appRef}/>	
+				
+				<Homepage/>
+		
+				<ProjectsPage/>
 
-				<PageShifter $shift={contactVisible}>
-					<Route exact path={routes.home}>
-						{({ match }) => (
-							<CSSTransition
-								in={match != null}
-								timeout={600}
-								classNames="page"
-								unmountOnExit
-								nodeRef={refs[routes.home]}
-							>
-								<Homepage
-									$ref={refs[routes.home]}
-								/>
-							</CSSTransition>
-						)}
-					</Route>
+				<AboutMePage/>
 
-					<Route exact path={routes.about}>
-						{({ match }) => (
-							<CSSTransition
-								in={match != null}
-								timeout={450}
-								classNames="page"
-								unmountOnExit
-								nodeRef={refs[routes.about]}
-							>
-								<AboutMePage
-									$ref={refs[routes.about]}
-								/>
-							</CSSTransition>
-						)}
-					</Route>
-
-					<Route exact path={routes.education}>
-						{({ match }) => (
-							<CSSTransition
-								in={match != null}
-								timeout={450}
-								classNames="page"
-								unmountOnExit
-								nodeRef={refs[routes.education]}
-							>
-								<EducationPage
-									$ref={
-										refs[
-											routes
-												.education
-										]
-									}
-								/>
-							</CSSTransition>
-						)}
-					</Route>
-
-					<Route exact path={routes.projects}>
-						{({ match }) => (
-							<CSSTransition
-								in={match != null}
-								timeout={450}
-								classNames="page"
-								unmountOnExit
-								nodeRef={refs[routes.projects]}
-							>
-								<ProjectsPage
-									$ref={
-										refs[
-											routes
-												.projects
-										]
-									}
-								/>
-							</CSSTransition>
-						)}
-					</Route>
-				</PageShifter>
+				<EducationPage/>
 			</ThemeProvider>
 		</div>
 	);

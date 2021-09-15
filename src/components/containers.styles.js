@@ -33,6 +33,7 @@ export const InfoCard = styled.section`
 	gap: 0.5rem;
 	align-content: start;
 	position: relative;
+
 	@media (min-width: 1000px) {
 		grid-column: auto;
 	}
@@ -40,7 +41,7 @@ export const InfoCard = styled.section`
 
 export const SkillCardIcon = styled(InlineIcon)`
 	margin: 0 10px;
-	color: ${(props) => props.theme.main};
+	color: ${(props) => props.theme.text};
 	transition: transform 100ms ease;
 `;
 
@@ -61,6 +62,7 @@ export const SkillCard = styled.div`
 export const SkillCardsContainer = styled.div`
 	width: 100%;
 	height: auto;
+	margin-bottom: 20px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	align-items: center;
@@ -70,3 +72,4 @@ export const SkillCardsContainer = styled.div`
 		grid-template-columns: 1fr;
 	}
 `;
+

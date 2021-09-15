@@ -24,22 +24,25 @@ export function usePageChangeListener(history, fn) {
       useEffect(() => {
             if (prevRoute !== history.location.pathname) {
                   setPrevRoute(history.location.pathname);
-                  fn()
+                  fn(history.location.pathname)
             }
       }, [fn, history, prevRoute])
 }
 
-export const useDebounce = (func, wait) => {
+export const useDebounce = (func, wait, immediate) => {
       
       let timeout;
     
       return function executedFunction(...args) {
-        const later = () => {
-          clearTimeout(timeout);
-          func(...args);
-        };
-    
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
+            if(!timeout && immediate) {
+                  func(...args)
+            }
+            const later = () => {
+                  clearTimeout(timeout);
+                  timeout = null
+                  func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
       };
 };

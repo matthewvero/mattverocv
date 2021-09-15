@@ -38,7 +38,7 @@ export const MainMenuContainer = styled.div`
 	justify-content: start;
 	align-items: center;
 	background-color: ${(props) => props.theme.surface};
-
+	backdrop-filter: blur(20px);
 	&.mainmenu-enter {
 		transform: translateX(100%);
 	}

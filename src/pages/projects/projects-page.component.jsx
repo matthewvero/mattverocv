@@ -13,7 +13,9 @@ const ProjectsPage = ({ $ref }) => {
 	const ProjectCardTouch = withTouchAnimator(ProjectCard);
 	const theme = useContext(ThemeContext);
 	return (
-		<Page ref={$ref}>
+		<Page ref={$ref} id='projects' >
+		
+		
 			<TitleCard>
 				<Title style={{ marginBottom: "20px" }}>
 					My Projects
@@ -37,7 +39,7 @@ const ProjectsPage = ({ $ref }) => {
 					>
 						<React.Fragment>
 							<SubTitle
-								style={{ color: theme.main }}
+								
 							>
 								Netflix Clone
 							</SubTitle>
@@ -63,7 +65,7 @@ const ProjectsPage = ({ $ref }) => {
 					>
 						<React.Fragment>
 							<SubTitle
-								style={{ color: theme.main }}
+							
 							>
 								YelpCamp
 							</SubTitle>
@@ -92,7 +94,7 @@ const ProjectsPage = ({ $ref }) => {
 					>
 						<React.Fragment>
 							<SubTitle
-								style={{ color: theme.main }}
+								
 							>
 								mattvero.com
 							</SubTitle>
@@ -115,6 +117,7 @@ const ProjectsPage = ({ $ref }) => {
 					</ProjectCardTouch>
 				</ProjectsPageGrid>
 			</TitleCard>
+			
 		</Page>
 	);
 };

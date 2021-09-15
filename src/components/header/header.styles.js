@@ -29,20 +29,21 @@ export const MAVLOGO = styled(LOGO)`
 export const HeaderContainer = styled.header`
 	z-index: 11;
 	position: fixed;
-	width: ${(props) => (props.$popped ? "90vw" : "100vw")};
-	left: ${(props) => (props.$popped ? "5vw" : "0")};
+	width: 100%;
+	top: 0px;
+	left: 0px;
 	height: 100px;
 	padding: 20px 15%;
 	display: grid;
 	grid-template-columns: 2fr 1fr 2fr;
 	box-sizing: border-box;
 	justify-items: center;
-	background-color: ${(props) => props.theme.surface};
-	box-shadow: 0 0 10px #151515;
+	
 	border-radius: ${(props) =>
 		props.$popped ? props.theme.borderRadius : "0"};
-	transition: all ${(props) => (props.$transition ? "200ms" : "0ms")};
+	transition: transform ${(props) => (props.$transition ? "200ms" : "0ms")};
 	transform: translateY(${(props) => (props.$popped ? "10px" : "0")});
+	
 	@media (max-width: 1000px) {
 		padding: 30px 15px;
 		display: flex;
@@ -51,6 +52,23 @@ export const HeaderContainer = styled.header`
 		left: 0;
 		transform: translateY(0);
 		border-radius: 0;
+	}
+	&:before {
+		content: ' ';
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: ${(props) => props.theme.headerSurface};
+		transition: transform 100ms linear;
+		transform: scale(${props => props.$popped ? '0.9' : '1'}, ${props => props.$contactVisible ? '2' : '1'});
+		transform-origin: top;
+		backdrop-filter: blur(20px);
+		border-radius: ${(props) =>
+		props.$popped ? props.theme.borderRadius : "0"};
+		will-change: transform;
 	}
 `;
 
@@ -77,6 +95,8 @@ export const HeaderLink = styled.div`
 			solid;
 	}
 `;
+
+
 
 export const HeaderPageIndicator = styled.div`
 	position: absolute;

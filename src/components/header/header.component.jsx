@@ -17,67 +17,74 @@ import ContactDetails from "../contact/contact-details.component";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleContactDetails } from "../../redux";
 import { CSSTransition } from "react-transition-group";
-const Header = ({ history, location }) => {
+const Header = ({ history, location, $appRef }) => {
 	const [popped, setPopped] = useState(false);
 	const [transition, setTransition] = useState(false);
 	const contactDetailsVisible = useSelector(
 		(state) => state.contactDetails.visible
 	);
 	const dispatch = useDispatch();
-	const handleScroll = () => {
-		setTransition(true);
+	const handleScroll = (e) => {
+		
+		if (e.target.scrollTop > 0 && popped === false) {
+			setTransition(true);
 		setTimeout(() => setTransition(false), 200);
-		if (window.scrollY > 0) {
 			setPopped(true);
-		} else if (window.scrollY === 0) {
+		} else if (e.target.scrollTop === 0) {
 			setPopped(false);
 		}
 	};
-	const debounceHandleScroll = useDebounce(handleScroll, 100);
+	const debounceHandleScroll = useDebounce(handleScroll, 400, true);
 	useEffect(() => {
-		window.addEventListener("scroll", debounceHandleScroll);
+		const appRef = $appRef.current
+		
+		appRef.addEventListener("scroll", debounceHandleScroll);
 		return () => {
-			window.removeEventListener("scroll", debounceHandleScroll);
+			appRef.removeEventListener("scroll", debounceHandleScroll);
 		};
-	}, [debounceHandleScroll, popped]);
+	}, [$appRef, debounceHandleScroll, popped]);
 	const HeaderLinkTouch = withTouchAnimator(HeaderLink);
 	const MAVLOGOTouch = withTouchAnimator(MAVLOGO);
 	const MobileContactButtonTouch = withTouchAnimator(MobileContactButton);
+
+	
 	return (
-		<HeaderContainer $popped={popped} $transition={transition}>
+		<HeaderContainer $popped={popped} $transition={transition} $contactVisible={contactDetailsVisible}>
 			<HeaderNav>
-				<HeaderLinkTouch
-					fn={() => history.push("/about")}
-					$open={location.pathname === "/about"}
-				>
-					<Text>About Me</Text>
-				</HeaderLinkTouch>
-				<HeaderLinkTouch
-					fn={() => history.push("/education")}
-					$open={location.pathname === "/education"}
-				>
-					<Text>Education</Text>
-				</HeaderLinkTouch>
-			</HeaderNav>
-
-			<MAVLOGOTouch
-				viewBox="0 -5 150 90"
-				fn={() => history.push("/")}
-				$open={location.pathname === "/"}
-			/>
-
-			<HeaderNav>
-				<HeaderLinkTouch
+			<HeaderLinkTouch
 					fn={() => history.push("/projects")}
 					$open={location.pathname === "/projects"}
+					
 				>
-					<Text>Projects</Text>
+					<Text >Projects</Text>
+			</HeaderLinkTouch>
+				<HeaderLinkTouch
+			fn={() => history.push("/about")}
+			$open={location.pathname === "/about"}
+		>
+			<Text >About Me</Text>
+		</HeaderLinkTouch>
+			</HeaderNav>
+
+			<HeaderLinkTouch
+						fn={() => history.push("/")}
+						$open={location.pathname === "/"}
+					>
+						<Text >Matt Vero</Text>
+				</HeaderLinkTouch>
+
+			<HeaderNav>
+				<HeaderLinkTouch
+						fn={() => history.push("/education")}
+						$open={location.pathname === "/education"}
+					>
+						<Text >Education</Text>
 				</HeaderLinkTouch>
 				<HeaderLinkTouch
-					fn={() => dispatch(toggleContactDetails())}
-					$open={contactDetailsVisible}
-				>
-					<Text>Contact</Text>
+						fn={() => dispatch(toggleContactDetails())}
+						$open={contactDetailsVisible}
+					>
+						<Text >Contact</Text>
 				</HeaderLinkTouch>
 			</HeaderNav>
 

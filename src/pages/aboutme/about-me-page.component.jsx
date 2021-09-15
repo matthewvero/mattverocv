@@ -12,8 +12,8 @@ const AboutMePage = ({ $ref }) => {
 	const theme = useContext(ThemeContext);
 
 	return (
-		<Page ref={$ref}>
-			<AboutMePageGrid>
+		<Page ref={$ref} id='about'>
+			<AboutMePageGrid >
 				<TitleCard style={{ gridColumn: "1/3", order: "1" }}>
 					<Title>About Me</Title>
 				</TitleCard>
