@@ -106,15 +106,29 @@ export const SkillCardsContainer = styled.div`
       gap: 1rem;
       @media (max-width: 650px) {
             grid-template-columns: 1fr;
+            & ${SkillCard}:hover ~ ${SkillCard} {
+                  transform: translateY(80px);
+            }
+            & ${SkillCard}:before {
+		      transform: skew(0);
+	      }
       }
-	& ${SkillCard}:nth-of-type(even):before {
-		transform: skew(10deg);
-	}
 
-      & ${SkillCard}:nth-of-type(even):hover ~ ${SkillCard}:nth-of-type(even) {
-            transform: translateY(80px);  
+	
+
+      @media (min-width: 650px) {
+            & ${SkillCard}:nth-of-type(even):before {
+		      transform: skew(10deg);
+	      }
+
+            & ${SkillCard}:nth-of-type(even):hover ~ ${SkillCard}:nth-of-type(even) {
+                  transform: translateY(80px);  
+            }
+      
+            & ${SkillCard}:nth-of-type(odd):hover ~ ${SkillCard}:nth-of-type(odd) {
+                  transform: translateY(80px);
+            }
       }
-      & ${SkillCard}:nth-of-type(odd):hover ~ ${SkillCard}:nth-of-type(odd) {
-            transform: translateY(80px);
-      }
+
+
 `

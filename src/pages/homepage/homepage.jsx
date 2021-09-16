@@ -55,9 +55,10 @@ const Homepage = () => {
 
                         <SkillCardsContainer
                               style={{ gridColumn: '1/3', order: '2' }}
+                              
                         >
                               
-                              <SkillCard data-para='I like react because it is easy to use'>
+                              <SkillCard >
                                     <Text >React</Text>
                                     <SkillCardIcon icon={reactIcon} />
                               </SkillCard>
