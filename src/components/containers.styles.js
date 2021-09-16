@@ -47,8 +47,7 @@ export const SkillCardIcon = styled(InlineIcon)`
 
 export const SkillCard = styled.div`
 	position: relative;
-      width: 90%;
-	margin: 0 5%;
+      width: 100%;
       height: 50px;
       display: flex;
       flex-direction: row;
@@ -73,24 +72,13 @@ export const SkillCard = styled.div`
             font-size: 2rem;
             
       }
-      &:after {
-            ${props => console.log(props)}
-            content: attr(data-para);
-            height: 80px;
+
+      @media(min-width: 650px) {
             width: 90%;
-            position: absolute;
-            bottom: 0;
-            left: 5%;
-            transform: translateY(100%) scaleY(0);
-            transition: transform 200ms ease-out;
-            transform-origin: top;
-            background-color: #151515;
-            border-radius: ${props => props.theme.borderRadius};
+	margin: 0 5%;
       }
-      &:hover :after {
-            transform: translateY(100%) scaleY(1);
-            
-      }
+
+      
      
 
 `
@@ -104,11 +92,9 @@ export const SkillCardsContainer = styled.div`
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+
       @media (max-width: 650px) {
-            grid-template-columns: 1fr;
-            & ${SkillCard}:hover ~ ${SkillCard} {
-                  transform: translateY(80px);
-            }
+            grid-template-columns: 1fr 1fr;
             & ${SkillCard}:before {
 		      transform: skew(0);
 	      }

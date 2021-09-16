@@ -25,7 +25,7 @@ export const Text = styled.p`
                   : props.theme.subText};
       font-weight: 400;
       margin: 0;
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
             font-size: 1rem;
       }
 `

@@ -1,17 +1,15 @@
 /** @format */
 
-import React, { useContext } from 'react'
+import React from 'react'
 import { TitleCard } from '../../components/containers.styles'
 import { Page } from '../page.styles'
 import { SubTitle, Text, Title } from '../../components/text.styles.js'
 import { ProjectsPageGrid } from './projects-page.styles'
 import ProjectCard from '../../components/project-card/project-card.component'
 import withTouchAnimator from '../../HOCs/with-touch-animator'
-import { ThemeContext } from 'styled-components'
 import { HR } from '../../components/misc.styles.js'
 const ProjectsPage = ({ $visiblePages }) => {
       const ProjectCardTouch = withTouchAnimator(ProjectCard)
-      const theme = useContext(ThemeContext)
       return (
             <Page id="projects" className='page' data-page-url='/projects'>
                   <TitleCard>

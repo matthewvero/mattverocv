@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import {
       HeaderContainer,
       HeaderLink,
-      HeaderNav,
       MobileContactButton,
 } from './header.styles'
 
@@ -12,7 +11,7 @@ import { withRouter } from 'react-router-dom'
 import { Text } from '../text.styles'
 import withTouchAnimator from '../../HOCs/with-touch-animator'
 import MainMenu from '../main-menu/main-menu.component'
-import { useDebounce, usePageChangeListener, usePageChanger } from '../../ui-custom-hooks.js'
+import { useDebounce, usePageChanger } from '../../ui-custom-hooks.js'
 import ContactDetails from '../contact/contact-details.component'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleContactDetails } from '../../redux'

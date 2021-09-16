@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import {
       SkillCard,
       SkillCardIcon,
@@ -71,7 +71,7 @@ const Homepage = () => {
                                     <SkillCardIcon icon={javascriptIcon} />
                               </SkillCard>
                               <SkillCard >
-                                    <Text >Styled-Components</Text>
+                                    <Text >Styled Components</Text>
                                     <SkillCardIcon icon={styledComponents} />
                               </SkillCard>
                               <SkillCard >

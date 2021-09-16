@@ -12,13 +12,3 @@ export const theme = {
       charcoal: '#364156',
       headerSurface: 'mediumslateblue',
 }
-
-const backup = {
-      main: '#a960ff',
-      surface: '#232323',
-      background: '#151515',
-      text: '#eeeeee',
-      subText: '#dddddd',
-      borderBottom: '1px solid #555555',
-      borderRadius: '3px',
-}

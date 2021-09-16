@@ -1,12 +1,11 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const withTouchAnimator = (WrappedComponent) => {
       return ({ children, fn, $ref, ...props }) => {
             const [active, setActive] = useState(false)
             const [hovering, setHovering] = useState(false)
-            const [childrenWithProps, setChildrenWithProps] = useState()
             const handlePointerDown = (e) => {
                   e.preventDefault()
                   e.stopPropagation()
@@ -24,16 +23,6 @@ const withTouchAnimator = (WrappedComponent) => {
             const handleMouseLeave = () => {
                   setHovering(false)
             }
-
-            useEffect(() => {
-                  children &&
-                        setChildrenWithProps(
-                              React.cloneElement(children, {
-                                    $active: active,
-                                    $hovering: hovering,
-                              })
-                        )
-            }, [active, children, hovering])
 
             return (
                   <WrappedComponent

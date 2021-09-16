@@ -1,13 +1,12 @@
 /** @format */
 
 import './App.css'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { withRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components/macro'
 import { theme } from './theme'
-import { useDebounce, usePageChangeListener, useVisiblePageObserver } from './ui-custom-hooks'
-import { useDispatch } from 'react-redux'
-import { setActivePage } from './redux'
+import { useVisiblePageObserver } from './ui-custom-hooks'
+
 import Header from './components/header/header.component'
 import Homepage from './pages/homepage/homepage'
 import AboutMePage from './pages/aboutme/about-me-page.component'

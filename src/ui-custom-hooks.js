@@ -21,13 +21,13 @@ export function useClickOutsideListener(fn, ref) {
 }
 
 export function usePageChangeListener(history, fn) {
-      const [prevRoute, setPrevRoute] = useState()
+      const [prevRoute, setPrevRoute] = useState();
       useEffect(() => {
             if (prevRoute !== history.location.pathname) {
-                  setPrevRoute(history.location.pathname)
-                  fn(history.location.pathname, prevRoute)
+                  setPrevRoute(history.location.pathname);
+                  fn(history.location.pathname, prevRoute);
             }
-      }, [fn, history, prevRoute])
+      }, [fn, history, prevRoute]);
 }
 
 export const useDebounce = (func, wait, immediate) => {
@@ -93,6 +93,7 @@ export const useVisiblePageObserver = (viewRef, className) => {
 				observer.unobserve(page);
 			});
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [dispatch])
       return visiblePages
 }

@@ -1,18 +1,7 @@
 /** @format */
 
-import styled, { keyframes } from 'styled-components/macro'
+import styled from 'styled-components/macro'
 
-const appear = keyframes`
-  from {
-      transform: scale(0.8);
-      opacity: 0.5;
-  }
-
-  to {
-      opacity: 1;
-      transform: scale(1);
-  }
-`
 
 export const Page = styled.div`
       height: auto;
