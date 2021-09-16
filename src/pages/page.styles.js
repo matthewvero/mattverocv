@@ -1,36 +1,51 @@
 /** @format */
 
-import styled from "styled-components/macro";
+import styled, { keyframes } from 'styled-components/macro'
+
+const appear = keyframes`
+  from {
+      transform: scale(0.8);
+      opacity: 0.5;
+  }
+
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+`
 
 export const Page = styled.div`
-	height: 100vh;
-	width: 100%;
-	display: grid;
-	padding: 20px;	
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: start;
-	box-sizing: border-box;
-	
-`;
+      height: auto;
+      min-height: 500px;
+      width: 100%;
+      display: grid;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      box-sizing: border-box;
+      will-change: transform opacity;
+
+`
 
 export const PageGrid = styled.section`
-	height: auto;
-	width: 70%;
-	display: grid;
-	box-sizing: border-box;
-	gap: 1rem;
-	margin-bottom: 20px;
-	@media (max-width: 1200px) {
-		width: 100%;
-	}
-`;
+      height: auto;
+      width: 70%;
+      display: grid;
+      box-sizing: border-box;
+      gap: 1rem;
+      margin-bottom: 20px;
+      @media (max-width: 1200px) {
+            width: 100%;
+      }
+     
+`
 export const PageShifter = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 100px;
-	transition: transform 100ms;
-	transform: translateY(${(props) => (props.$shift ? "100px" : "0")});
-`;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 100px;
+      transition: transform 100ms;
+      transform: translateY(${(props) => (props.$shift ? '100px' : '0')});
+`
