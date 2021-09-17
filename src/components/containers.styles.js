@@ -108,11 +108,11 @@ export const SkillCardsContainer = styled.div`
 	      }
 
             & ${SkillCard}:nth-of-type(even):hover ~ ${SkillCard}:nth-of-type(even) {
-                  transform: translateY(80px);  
+                  transform: translateY(20px);  
             }
       
             & ${SkillCard}:nth-of-type(odd):hover ~ ${SkillCard}:nth-of-type(odd) {
-                  transform: translateY(80px);
+                  transform: translateY(20px);
             }
       }
 

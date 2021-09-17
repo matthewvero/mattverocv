@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components/macro'
 import { theme } from './theme'
 import { useVisiblePageObserver } from './ui-custom-hooks'
-
 import Header from './components/header/header.component'
 import Homepage from './pages/homepage/homepage'
 import AboutMePage from './pages/aboutme/about-me-page.component'

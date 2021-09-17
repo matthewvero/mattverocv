@@ -1,8 +1,8 @@
 /** @format */
 
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useClickOutsideListener } from '../../ui-custom-hooks'
+import { useClickOutsideListener, usePageChanger } from '../../ui-custom-hooks'
 import {
       MainMenuContainer,
       MainMenuSlide,
@@ -19,7 +19,7 @@ import { SubTitle } from '../text.styles'
 import { HR } from '../misc.styles'
 import withTouchAnimator from '../../HOCs/with-touch-animator'
 import { withRouter } from 'react-router-dom'
-const MainMenu = ({ history, location }) => {
+const MainMenu = () => {
       const mainMenuRef = useRef(null)
       const slideRef = useRef()
       const shellRef = useRef()
@@ -41,10 +41,17 @@ const MainMenu = ({ history, location }) => {
                   dispatch(setMainMenuVisible(false))
             }
       }
+
       useClickOutsideListener(handleClickOutside, shellRef)
+      
+      const [goToPage] = usePageChanger();
 
+      const activePage = useSelector(state => (
+            state.activePage.activePage
+      ))
+     
       const MainMenuItemTouch = withTouchAnimator(MainMenuItem)
-
+      
       return (
             <MainMenuShell ref={shellRef}>
                   <MainMenuButton
@@ -92,11 +99,11 @@ const MainMenu = ({ history, location }) => {
                               >
                                     <MainMenuSlide ref={slideRef}>
                                           <MainMenuItemTouch
-                                                fn={() => history.push('/')}
+                                                fn={() => goToPage('/')}
                                           >
                                                 <SubTitle
                                                       $location={
-                                                            location.pathname ===
+                                                            activePage ===
                                                             '/'
                                                       }
                                                 >
@@ -106,12 +113,12 @@ const MainMenu = ({ history, location }) => {
                                           <HR />
                                           <MainMenuItemTouch
                                                 fn={() =>
-                                                      history.push('/about')
+                                                      goToPage('/about')
                                                 }
                                           >
                                                 <SubTitle
                                                       $location={
-                                                            location.pathname ===
+                                                            activePage ===
                                                             '/about'
                                                       }
                                                 >
@@ -123,12 +130,12 @@ const MainMenu = ({ history, location }) => {
 
                                           <MainMenuItemTouch
                                                 fn={() =>
-                                                      history.push('/education')
+                                                      goToPage('/education')
                                                 }
                                           >
                                                 <SubTitle
                                                       $location={
-                                                            location.pathname ===
+                                                            activePage ===
                                                             '/education'
                                                       }
                                                 >
@@ -140,12 +147,12 @@ const MainMenu = ({ history, location }) => {
 
                                           <MainMenuItemTouch
                                                 fn={() =>
-                                                      history.push('/projects')
+                                                      goToPage('/projects')
                                                 }
                                           >
                                                 <SubTitle
                                                       $location={
-                                                            location.pathname ===
+                                                            activePage ===
                                                             '/projects'
                                                       }
                                                 >

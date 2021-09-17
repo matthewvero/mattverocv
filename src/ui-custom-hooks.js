@@ -61,9 +61,9 @@ export const usePageChanger = () => {
                         behavior: 'smooth',
                   });
             }
+            dispatch(setMainMenuVisible(false))
       }
 
-      dispatch(setMainMenuVisible(false))
       return [goToPage]
 }
 
