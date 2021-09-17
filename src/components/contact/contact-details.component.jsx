@@ -1,29 +1,29 @@
 /** @format */
 
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import React, { useRef, useState } from 'react'
-import withTouchAnimator from '../../HOCs/with-touch-animator'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import React, { useRef, useState } from 'react';
+import withTouchAnimator from '../../HOCs/with-touch-animator';
 import {
       ContactButton,
       ContactDetailsContainer,
       ContactDetailsFader,
       CopiedIndicator,
-} from './contact-details.styles'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
-import { CSSTransition } from 'react-transition-group'
-import { Text } from '../text.styles'
+} from './contact-details.styles';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { CSSTransition } from 'react-transition-group';
+import { Text } from '../text.styles';
 const ContactDetails = ({ $visible }) => {
-      const ContactButtonTouch = withTouchAnimator(ContactButton)
-      const clipBoardRef = useRef()
-      const [copied, setCopied] = useState(false)
+      const ContactButtonTouch = withTouchAnimator(ContactButton);
+      const clipBoardRef = useRef();
+      const [copied, setCopied] = useState(false);
       const copyEmail = () => {
             // clipBoardRef.current.select();
             // clipBoardRef.current.selectRange(0, 9999);
             // document.execCommand("copy");
-            setCopied(true)
-            setTimeout(() => setCopied(false), 1000)
-      }
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1000);
+      };
       return (
             <ContactDetailsContainer ref={clipBoardRef}>
                   <ContactDetailsFader>
@@ -63,7 +63,7 @@ const ContactDetails = ({ $visible }) => {
                         </CopyToClipboard>
                   </ContactDetailsFader>
             </ContactDetailsContainer>
-      )
-}
+      );
+};
 
-export default ContactDetails
+export default ContactDetails;

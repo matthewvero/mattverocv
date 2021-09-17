@@ -1,17 +1,17 @@
 /** @format */
 
-import React from 'react'
-import { TitleCard } from '../../components/containers.styles'
-import { Page } from '../page.styles'
-import { SubTitle, Text, Title } from '../../components/text.styles.js'
-import { ProjectsPageGrid } from './projects-page.styles'
-import ProjectCard from '../../components/project-card/project-card.component'
-import withTouchAnimator from '../../HOCs/with-touch-animator'
-import { HR } from '../../components/misc.styles.js'
+import React from 'react';
+import { TitleCard } from '../../components/containers.styles';
+import { Page } from '../page.styles';
+import { SubTitle, Text, Title } from '../../components/text.styles.js';
+import { ProjectsPageGrid } from './projects-page.styles';
+import ProjectCard from '../../components/project-card/project-card.component';
+import withTouchAnimator from '../../HOCs/with-touch-animator';
+import { HR } from '../../components/misc.styles.js';
 const ProjectsPage = ({ $visiblePages }) => {
-      const ProjectCardTouch = withTouchAnimator(ProjectCard)
+      const ProjectCardTouch = withTouchAnimator(ProjectCard);
       return (
-            <Page id="projects" className='page' data-page-url='/projects'>
+            <Page id="projects" className="page" data-page-url="/projects">
                   <TitleCard>
                         <Title style={{ marginBottom: '20px' }}>
                               My Projects
@@ -102,7 +102,7 @@ const ProjectsPage = ({ $visiblePages }) => {
                         </ProjectsPageGrid>
                   </TitleCard>
             </Page>
-      )
-}
+      );
+};
 
-export default ProjectsPage
+export default ProjectsPage;

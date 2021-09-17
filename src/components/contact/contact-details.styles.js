@@ -1,11 +1,11 @@
 /** @format */
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styled, { keyframes } from 'styled-components/macro'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled, { keyframes } from 'styled-components/macro';
 const fadein = keyframes`
       0% {opacity: 0%;}
       100% {opacity: 100%;}
-`
+`;
 
 export const ContactDetailsContainer = styled.div`
       height: 100px;
@@ -42,7 +42,7 @@ export const ContactDetailsContainer = styled.div`
             width: 100%;
             border-radius: ${(props) => props.theme.borderRadius};
       }
-`
+`;
 
 export const ContactDetailsFader = styled.div`
       width: 70%;
@@ -52,7 +52,7 @@ export const ContactDetailsFader = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-`
+`;
 
 export const ContactButton = styled(FontAwesomeIcon)`
       margin: 0 10px;
@@ -62,21 +62,21 @@ export const ContactButton = styled(FontAwesomeIcon)`
       transform: scale(
             ${(props) => {
                   if (props.$active) {
-                        return '0.98'
+                        return '0.98';
                   } else if (props.$hovering) {
-                        return '1.05'
+                        return '1.05';
                   } else {
-                        return '1'
+                        return '1';
                   }
             }}
       );
-`
+`;
 export const CopiedIndicator = styled.div`
       position: absolute;
       left: 50%;
       bottom: 50%;
       transform: translate(-50%, 50%);
-      background-color: ${props => props.theme.main};
+      background-color: ${(props) => props.theme.main};
       border-radius: ${(props) => props.theme.borderRadius};
 
       padding: 10px 5px;
@@ -94,4 +94,4 @@ export const CopiedIndicator = styled.div`
             transition: all 300ms ease-out;
             opacity: 0;
       }
-`
+`;

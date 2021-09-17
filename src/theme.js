@@ -11,4 +11,4 @@ export const theme = {
       border: '2px solid white',
       charcoal: '#364156',
       headerSurface: 'mediumslateblue',
-}
+};

@@ -1,7 +1,7 @@
 /** @format */
 
-import React, { useEffect, useRef, useState } from 'react'
-import { CSSTransition } from 'react-transition-group'
+import React, { useEffect, useRef, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import {
       ProjectCardBackground,
       ProjectCardContainer,
@@ -10,14 +10,14 @@ import {
       ProjectCardSideBarContent,
       SkillsShiftButton,
       TechCard,
-} from './project-card.styles'
+} from './project-card.styles';
 
-import { Button, IconButton } from '../button.styles.js'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { Text } from '../text.styles'
-import withTouchAnimator from '../../HOCs/with-touch-animator'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Button, IconButton } from '../button.styles.js';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { Text } from '../text.styles';
+import withTouchAnimator from '../../HOCs/with-touch-animator';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const ProjectCard = ({
       $hovering,
@@ -30,25 +30,25 @@ const ProjectCard = ({
       $left,
       ...props
 }) => {
-      const [shift, setShift] = useState(false)
-      const faderRef = useRef(null)
-      const backgroundRef = useRef(null)
-      const sidebarRef = useRef(null)
-      const IconButtonTouch = withTouchAnimator(IconButton)
-      const ButtonTouch = withTouchAnimator(Button)
+      const [shift, setShift] = useState(false);
+      const faderRef = useRef(null);
+      const backgroundRef = useRef(null);
+      const sidebarRef = useRef(null);
+      const IconButtonTouch = withTouchAnimator(IconButton);
+      const ButtonTouch = withTouchAnimator(Button);
       const handleLiveClick = () => {
-            window.open($liveUrl, '_blank')
-      }
+            window.open($liveUrl, '_blank');
+      };
 
       const handleGithubClick = () => {
-            window.open($githubUrl, '_blank')
-      }
+            window.open($githubUrl, '_blank');
+      };
 
       useEffect(() => {
             if ($hovering === false) {
-                  setShift(false)
+                  setShift(false);
             }
-      }, [$active, $hovering])
+      }, [$active, $hovering]);
 
       return (
             <React.Fragment>
@@ -148,7 +148,7 @@ const ProjectCard = ({
                         </CSSTransition>
                   </ProjectCardContainer>
             </React.Fragment>
-      )
-}
+      );
+};
 
-export default ProjectCard
+export default ProjectCard;

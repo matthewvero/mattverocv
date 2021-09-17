@@ -1,7 +1,6 @@
 /** @format */
 
-import styled from 'styled-components/macro'
-
+import styled from 'styled-components/macro';
 
 export const Page = styled.div`
       height: auto;
@@ -15,8 +14,7 @@ export const Page = styled.div`
       justify-content: start;
       box-sizing: border-box;
       will-change: transform opacity;
-
-`
+`;
 
 export const PageGrid = styled.section`
       height: auto;
@@ -28,8 +26,7 @@ export const PageGrid = styled.section`
       @media (max-width: 1200px) {
             width: 100%;
       }
-     
-`
+`;
 export const PageShifter = styled.div`
       display: flex;
       flex-direction: column;
@@ -37,4 +34,4 @@ export const PageShifter = styled.div`
       padding-top: 100px;
       transition: transform 100ms;
       transform: translateY(${(props) => (props.$shift ? '100px' : '0')});
-`
+`;

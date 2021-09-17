@@ -1,57 +1,55 @@
 /** @format */
 
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useClickOutsideListener, usePageChanger } from '../../ui-custom-hooks'
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useClickOutsideListener, usePageChanger } from '../../ui-custom-hooks';
 import {
       MainMenuContainer,
       MainMenuSlide,
       MainMenuButton,
       MainMenuShell,
       MainMenuItem,
-} from './main-menu.styles'
-import { setMainMenuVisible, toggleMainMenu } from '../../redux.js'
-import { CSSTransition } from 'react-transition-group'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { ThemeContext } from 'styled-components/macro'
-import { SubTitle } from '../text.styles'
-import { HR } from '../misc.styles'
-import withTouchAnimator from '../../HOCs/with-touch-animator'
-import { withRouter } from 'react-router-dom'
+} from './main-menu.styles';
+import { setMainMenuVisible, toggleMainMenu } from '../../redux.js';
+import { CSSTransition } from 'react-transition-group';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { ThemeContext } from 'styled-components/macro';
+import { SubTitle } from '../text.styles';
+import { HR } from '../misc.styles';
+import withTouchAnimator from '../../HOCs/with-touch-animator';
+import { withRouter } from 'react-router-dom';
 const MainMenu = () => {
-      const mainMenuRef = useRef(null)
-      const slideRef = useRef()
-      const shellRef = useRef()
-      const dispatch = useDispatch()
-      const visible = useSelector((state) => state.mainMenu.visible)
+      const mainMenuRef = useRef(null);
+      const slideRef = useRef();
+      const shellRef = useRef();
+      const dispatch = useDispatch();
+      const visible = useSelector((state) => state.mainMenu.visible);
       const contactVisible = useSelector(
             (state) => state.contactDetails.visible
-      )
-      const [slideVisible, setSlideVisible] = useState(false)
-      const [active, setActive] = useState(false)
-      const theme = useContext(ThemeContext)
+      );
+      const [slideVisible, setSlideVisible] = useState(false);
+      const [active, setActive] = useState(false);
+      const theme = useContext(ThemeContext);
       const handlePointerUp = () => {
-            setActive(false)
-            dispatch(toggleMainMenu())
-      }
+            setActive(false);
+            dispatch(toggleMainMenu());
+      };
 
       const handleClickOutside = () => {
             if (visible) {
-                  dispatch(setMainMenuVisible(false))
+                  dispatch(setMainMenuVisible(false));
             }
-      }
+      };
 
-      useClickOutsideListener(handleClickOutside, shellRef)
-      
+      useClickOutsideListener(handleClickOutside, shellRef);
+
       const [goToPage] = usePageChanger();
 
-      const activePage = useSelector(state => (
-            state.activePage.activePage
-      ))
-     
-      const MainMenuItemTouch = withTouchAnimator(MainMenuItem)
-      
+      const activePage = useSelector((state) => state.activePage.activePage);
+
+      const MainMenuItemTouch = withTouchAnimator(MainMenuItem);
+
       return (
             <MainMenuShell ref={shellRef}>
                   <MainMenuButton
@@ -103,8 +101,7 @@ const MainMenu = () => {
                                           >
                                                 <SubTitle
                                                       $location={
-                                                            activePage ===
-                                                            '/'
+                                                            activePage === '/'
                                                       }
                                                 >
                                                       Home
@@ -112,9 +109,7 @@ const MainMenu = () => {
                                           </MainMenuItemTouch>
                                           <HR />
                                           <MainMenuItemTouch
-                                                fn={() =>
-                                                      goToPage('/about')
-                                                }
+                                                fn={() => goToPage('/about')}
                                           >
                                                 <SubTitle
                                                       $location={
@@ -146,9 +141,7 @@ const MainMenu = () => {
                                           <HR />
 
                                           <MainMenuItemTouch
-                                                fn={() =>
-                                                      goToPage('/projects')
-                                                }
+                                                fn={() => goToPage('/projects')}
                                           >
                                                 <SubTitle
                                                       $location={
@@ -166,7 +159,7 @@ const MainMenu = () => {
                         </MainMenuContainer>
                   </CSSTransition>
             </MainMenuShell>
-      )
-}
+      );
+};
 
-export default withRouter(MainMenu)
+export default withRouter(MainMenu);

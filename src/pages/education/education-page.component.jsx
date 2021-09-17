@@ -1,22 +1,22 @@
 /** @format */
 
-import React, { useContext } from 'react'
-import { ThemeContext } from 'styled-components'
-import { InfoCard, TitleCard } from '../../components/containers.styles'
-import { HR, WebLink } from '../../components/misc.styles'
-import { SubTitle, Text, Title } from '../../components/text.styles'
-import { Page } from '../page.styles'
-import { EducationPageGrid } from './education-page.styles'
-import withTouchAnimator from '../../HOCs/with-touch-animator'
-import { Button } from '../../components/button.styles'
-import { withRouter } from 'react-router-dom'
-import { usePageChanger } from '../../ui-custom-hooks'
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+import { InfoCard, TitleCard } from '../../components/containers.styles';
+import { HR, WebLink } from '../../components/misc.styles';
+import { SubTitle, Text, Title } from '../../components/text.styles';
+import { Page } from '../page.styles';
+import { EducationPageGrid } from './education-page.styles';
+import withTouchAnimator from '../../HOCs/with-touch-animator';
+import { Button } from '../../components/button.styles';
+import { withRouter } from 'react-router-dom';
+import { usePageChanger } from '../../ui-custom-hooks';
 const EducationPage = () => {
-      const theme = useContext(ThemeContext)
-      const ButtonTouch = withTouchAnimator(Button)
-      const [goToPage] = usePageChanger()
+      const theme = useContext(ThemeContext);
+      const ButtonTouch = withTouchAnimator(Button);
+      const [goToPage] = usePageChanger();
       return (
-            <Page  id="education" className='page' data-page-url='/education'> 
+            <Page id="education" className="page" data-page-url="/education">
                   <EducationPageGrid>
                         <TitleCard style={{ gridColumn: '1/3' }}>
                               <Title>Education</Title>
@@ -191,7 +191,7 @@ const EducationPage = () => {
                         </InfoCard>
                   </EducationPageGrid>
             </Page>
-      )
-}
+      );
+};
 
-export default withRouter(EducationPage)
+export default withRouter(EducationPage);

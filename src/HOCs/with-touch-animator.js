@@ -1,28 +1,28 @@
 /** @format */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const withTouchAnimator = (WrappedComponent) => {
       return ({ children, fn, $ref, ...props }) => {
-            const [active, setActive] = useState(false)
-            const [hovering, setHovering] = useState(false)
+            const [active, setActive] = useState(false);
+            const [hovering, setHovering] = useState(false);
             const handlePointerDown = (e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  setActive(true)
-            }
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActive(true);
+            };
             const handlePointerUp = (e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  setActive(false)
-                  fn && fn()
-            }
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActive(false);
+                  fn && fn();
+            };
             const handleMouseEnter = () => {
-                  setHovering(true)
-            }
+                  setHovering(true);
+            };
             const handleMouseLeave = () => {
-                  setHovering(false)
-            }
+                  setHovering(false);
+            };
 
             return (
                   <WrappedComponent
@@ -34,10 +34,10 @@ const withTouchAnimator = (WrappedComponent) => {
                         onMouseLeave={handleMouseLeave}
                         onMouseOver={handleMouseEnter}
                   >
-                       {children}
+                        {children}
                   </WrappedComponent>
-            )
-      }
-}
+            );
+      };
+};
 
-export default withTouchAnimator
+export default withTouchAnimator;

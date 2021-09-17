@@ -1,7 +1,7 @@
 /** @format */
 
-import styled, { keyframes } from 'styled-components/macro'
-import { Text } from '../text.styles'
+import styled, { keyframes } from 'styled-components/macro';
+import { Text } from '../text.styles';
 
 export const ProjectCardContainer = styled.div`
       position: relative;
@@ -21,7 +21,7 @@ export const ProjectCardContainer = styled.div`
             );
             transition: transform 200ms ease;
       }
-`
+`;
 
 export const ProjectCardContentFader = styled.div`
       position: absolute;
@@ -66,14 +66,14 @@ export const ProjectCardContentFader = styled.div`
                   padding-right: 0;
             }
       }
-`
+`;
 
 export const ProjectCardBackground = styled(ProjectCardContentFader)`
       background-image: url(${(props) => props.$imageURL});
       background-position: center;
       background-size: cover;
       cursor: pointer;
-`
+`;
 
 const animation = keyframes`
 	from {
@@ -82,7 +82,7 @@ const animation = keyframes`
 	to {
 		background-color: rgba(10, 10, 10, 0.5);
 	}
-`
+`;
 
 export const ProjectCardSideBar = styled.div`
       height: 100%;
@@ -127,12 +127,12 @@ export const ProjectCardSideBar = styled.div`
       @media (min-width: 950px) {
             ${(props) => (props.$left ? 'left: -155px;' : 'right: -155px;')}
       }
-`
+`;
 
 const fadein = keyframes`
       0% {opacity: 0%;}
       100% {opacity: 100%;}
-`
+`;
 
 export const ProjectCardSideBarContent = styled.div`
       width: 100%;
@@ -144,7 +144,7 @@ export const ProjectCardSideBarContent = styled.div`
       opacity: 0;
       animation: ${fadein} 200ms 250ms forwards 1;
       padding: 10px 0;
-`
+`;
 
 export const TechCard = styled.div`
       height: auto;
@@ -156,7 +156,7 @@ export const TechCard = styled.div`
       place-items: center;
       color: ${(props) => props.theme.main};
       margin-bottom: 10px;
-`
+`;
 
 export const SkillsShiftButton = styled.div`
       display: none;
@@ -174,9 +174,9 @@ export const SkillsShiftButton = styled.div`
       justify-content: center;
       @media (max-width: 950px) {
             display: flex;
-         
+
             &:hover {
-                  background-color: rgba(25,25,25,0.3);
+                  background-color: rgba(25, 25, 25, 0.3);
             }
       }
       @media (max-width: 500px) {
@@ -184,4 +184,4 @@ export const SkillsShiftButton = styled.div`
                   background: transparent;
             }
       }
-`
+`;

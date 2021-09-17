@@ -1,7 +1,7 @@
 /** @format */
 
-import styled from 'styled-components/macro'
-import { PageGrid } from '../page.styles'
+import styled from 'styled-components/macro';
+import { PageGrid } from '../page.styles';
 
 export const ProjectsPageGrid = styled(PageGrid)`
       grid-template-columns: 1fr 1fr;
@@ -13,4 +13,4 @@ export const ProjectsPageGrid = styled(PageGrid)`
             place-items: center;
             width: 100%;
       }
-`
+`;

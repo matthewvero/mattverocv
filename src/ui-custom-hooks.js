@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { setActivePage, setMainMenuVisible } from './redux'
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setActivePage, setMainMenuVisible } from './redux';
 
 export function useClickOutsideListener(fn, ref) {
       useEffect(() => {
             const handleClick = (event) => {
                   // Check if click event target matches provided ref
-                  !ref?.current?.contains(event.target) && fn()
-            }
+                  !ref?.current?.contains(event.target) && fn();
+            };
 
             // Add peace period to let inital click event pass before
             // adding listener
-            window.addEventListener('pointerup', handleClick)
+            window.addEventListener('pointerup', handleClick);
 
             return () => {
-                  window.removeEventListener('pointerup', handleClick)
-            }
+                  window.removeEventListener('pointerup', handleClick);
+            };
             // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [fn, ref])
+      }, [fn, ref]);
 }
 
 export function usePageChangeListener(history, fn) {
@@ -31,24 +31,24 @@ export function usePageChangeListener(history, fn) {
 }
 
 export const useDebounce = (func, wait, immediate) => {
-      let timeout
+      let timeout;
 
       return function executedFunction(...args) {
             if (!timeout && immediate) {
-                  func(...args)
+                  func(...args);
             }
             const later = () => {
-                  clearTimeout(timeout)
-                  timeout = null
-                  func(...args)
-            }
-            clearTimeout(timeout)
-            timeout = setTimeout(later, wait)
-      }
-}
+                  clearTimeout(timeout);
+                  timeout = null;
+                  func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+      };
+};
 
 export const usePageChanger = () => {
-      const dispatch = useDispatch()
+      const dispatch = useDispatch();
       const view = document.querySelector('.App');
       const goToPage = (pathname) => {
             const pagename = pathname.split('/')[1];
@@ -61,40 +61,41 @@ export const usePageChanger = () => {
                         behavior: 'smooth',
                   });
             }
-            dispatch(setMainMenuVisible(false))
-      }
+            dispatch(setMainMenuVisible(false));
+      };
 
-      return [goToPage]
-}
+      return [goToPage];
+};
 
 export const useVisiblePageObserver = (viewRef, className) => {
-      const dispatch = useDispatch()
-      const [visiblePages, setVisiblePages] = useState({})
-	useEffect(() => {
-		const handleVisible = (elements) => {
-			const page = elements[0].target
-			setVisiblePages(visiblePages => ({...visiblePages, [page.dataset.pageUrl]: true}));
-			dispatch(setActivePage(page.dataset.pageUrl))
-		}
-		const options = {
-			root: viewRef.current,
-			threshold: 0.6,
-			
-		} 
-		const observer = new IntersectionObserver(handleVisible, options)
+      const dispatch = useDispatch();
+      const [visiblePages, setVisiblePages] = useState({});
+      useEffect(() => {
+            const handleVisible = (elements) => {
+                  const page = elements[0].target;
+                  setVisiblePages((visiblePages) => ({
+                        ...visiblePages,
+                        [page.dataset.pageUrl]: true,
+                  }));
+                  dispatch(setActivePage(page.dataset.pageUrl));
+            };
+            const options = {
+                  root: viewRef.current,
+                  threshold: 0.6,
+            };
+            const observer = new IntersectionObserver(handleVisible, options);
 
-		const pages = document.querySelectorAll(className);
+            const pages = document.querySelectorAll(className);
 
-		pages.forEach(page => {
-			observer.observe(page);
-		});
-		return () => {
-			pages.forEach(page => {
-				observer.unobserve(page);
-			});
-		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [dispatch])
-      return visiblePages
-}
-
+            pages.forEach((page) => {
+                  observer.observe(page);
+            });
+            return () => {
+                  pages.forEach((page) => {
+                        observer.unobserve(page);
+                  });
+            };
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [dispatch]);
+      return visiblePages;
+};

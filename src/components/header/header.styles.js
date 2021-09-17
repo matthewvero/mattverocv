@@ -1,7 +1,6 @@
 /** @format */
 
-import styled from 'styled-components/macro'
-
+import styled from 'styled-components/macro';
 
 export const HeaderContainer = styled.header`
       z-index: 11;
@@ -14,11 +13,12 @@ export const HeaderContainer = styled.header`
       display: flex;
       box-sizing: border-box;
       justify-items: center;
-	align-items: center;
+      align-items: center;
       border-radius: ${(props) =>
             props.$popped ? props.theme.borderRadius : '0'};
-      @media(min-width: 1000px) {
-            transition: transform ${(props) => (props.$transition ? '200ms' : '0ms')};
+      @media (min-width: 1000px) {
+            transition: transform
+                  ${(props) => (props.$transition ? '200ms' : '0ms')};
             transform: translateY(${(props) => (props.$popped ? '10px' : '0')});
       }
 
@@ -31,7 +31,7 @@ export const HeaderContainer = styled.header`
             transform: translateY(0);
             border-radius: 0;
       }
-     
+
       &:before {
             content: ' ';
             z-index: 0;
@@ -42,25 +42,22 @@ export const HeaderContainer = styled.header`
             width: 100%;
             background-color: ${(props) => props.theme.headerSurface};
             transition: transform 100ms linear;
-            transform: scale(
-                        ${(props) => (props.$contactVisible ? '2' : '1')}
-                  );
-            @media(min-width: 1000px) {
+            transform: scale(${(props) => (props.$contactVisible ? '2' : '1')});
+            @media (min-width: 1000px) {
                   border-radius: ${(props) =>
-                  props.$popped ? props.theme.borderRadius : '0'};
+                        props.$popped ? props.theme.borderRadius : '0'};
                   transform: scale(
                         ${(props) => (props.$popped ? '0.9' : '1')},
                         ${(props) => (props.$contactVisible ? '2' : '1')}
                   );
-            
             }
             transform-origin: top;
             backdrop-filter: blur(20px);
-            
+
             will-change: transform;
-            box-shadow: 0 0 5px 1px ${props => props.theme.background};
+            box-shadow: 0 0 5px 1px ${(props) => props.theme.background};
       }
-`
+`;
 
 export const HeaderLink = styled.div`
       height: 100%;
@@ -72,8 +69,8 @@ export const HeaderLink = styled.div`
       transform: scale(${(props) => (props.$active ? '0.95' : '1')});
       transition: transform 50ms ease-out;
       position: relative;
-	color: white; 
-	font-size: 1.3rem;
+      color: white;
+      font-size: 1.3rem;
       color: ${(props) => props.theme.subText};
       font-weight: 400;
       margin: 0;
@@ -88,10 +85,11 @@ export const HeaderLink = styled.div`
             width: 70%;
             transform: translateX(-50%);
             border-bottom: 3px
-                  ${(props) => (props.$open ? props.theme.charcoal : 'transparent')}
+                  ${(props) =>
+                        props.$open ? props.theme.charcoal : 'transparent'}
                   solid;
       }
-`
+`;
 
 export const HeaderPageIndicator = styled.div`
       position: absolute;
@@ -100,9 +98,7 @@ export const HeaderPageIndicator = styled.div`
       height: 2px;
       width: 80%;
       background-color: ${(props) => props.theme.main};
-`
-
-
+`;
 
 export const MobileContactButton = styled.div`
       display: none;
@@ -116,4 +112,4 @@ export const MobileContactButton = styled.div`
       @media (max-width: 1000px) {
             display: flex;
       }
-`
+`;

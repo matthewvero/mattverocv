@@ -1,39 +1,39 @@
 /** @format */
 
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import {
       SkillCard,
       SkillCardIcon,
       SkillCardsContainer,
       TitleCard,
       InfoCard,
-} from '../../components/containers.styles'
-import { SubTitle, Text, Title } from '../../components/text.styles'
-import { Page } from '../page.styles'
-import reduxIcon from '@iconify-icons/simple-icons/redux'
-import reactIcon from '@iconify-icons/simple-icons/react'
-import javascriptIcon from '@iconify-icons/simple-icons/javascript'
-import styledComponents from '@iconify-icons/simple-icons/styled-components'
-import css3Icon from '@iconify-icons/simple-icons/css3'
-import html5Icon from '@iconify-icons/simple-icons/html5'
-import nodeDotJs from '@iconify-icons/simple-icons/node-dot-js'
-import gitIcon from '@iconify-icons/simple-icons/git'
-import firebaseIcon from '@iconify-icons/simple-icons/firebase'
-import mongodbIcon from '@iconify-icons/simple-icons/mongodb'
-import { HomepageGrid } from './homepage.styles'
-import { ThemeContext } from 'styled-components/macro'
-import { Button } from '../../components/button.styles.js'
-import { withRouter } from 'react-router-dom'
-import { HR } from '../../components/misc.styles.js'
-import withTouchAnimator from '../../HOCs/with-touch-animator'
-import { usePageChanger } from '../../ui-custom-hooks'
+} from '../../components/containers.styles';
+import { SubTitle, Text, Title } from '../../components/text.styles';
+import { Page } from '../page.styles';
+import reduxIcon from '@iconify-icons/simple-icons/redux';
+import reactIcon from '@iconify-icons/simple-icons/react';
+import javascriptIcon from '@iconify-icons/simple-icons/javascript';
+import styledComponents from '@iconify-icons/simple-icons/styled-components';
+import css3Icon from '@iconify-icons/simple-icons/css3';
+import html5Icon from '@iconify-icons/simple-icons/html5';
+import nodeDotJs from '@iconify-icons/simple-icons/node-dot-js';
+import gitIcon from '@iconify-icons/simple-icons/git';
+import firebaseIcon from '@iconify-icons/simple-icons/firebase';
+import mongodbIcon from '@iconify-icons/simple-icons/mongodb';
+import { HomepageGrid } from './homepage.styles';
+import { ThemeContext } from 'styled-components/macro';
+import { Button } from '../../components/button.styles.js';
+import { withRouter } from 'react-router-dom';
+import { HR } from '../../components/misc.styles.js';
+import withTouchAnimator from '../../HOCs/with-touch-animator';
+import { usePageChanger } from '../../ui-custom-hooks';
 const Homepage = () => {
-      const theme = useContext(ThemeContext)
-      const ButtonTouch = withTouchAnimator(Button)
-      
-      const [goToPage] = usePageChanger()
+      const theme = useContext(ThemeContext);
+      const ButtonTouch = withTouchAnimator(Button);
+
+      const [goToPage] = usePageChanger();
       return (
-            <Page id="homepage" className='page ' data-page-url='/'>
+            <Page id="homepage" className="page " data-page-url="/">
                   <HomepageGrid>
                         <TitleCard
                               style={{
@@ -55,46 +55,44 @@ const Homepage = () => {
 
                         <SkillCardsContainer
                               style={{ gridColumn: '1/3', order: '2' }}
-                              
                         >
-                              
-                              <SkillCard >
-                                    <Text >React</Text>
+                              <SkillCard>
+                                    <Text>React</Text>
                                     <SkillCardIcon icon={reactIcon} />
                               </SkillCard>
-                              <SkillCard >
-                                    <Text >Redux</Text>
+                              <SkillCard>
+                                    <Text>Redux</Text>
                                     <SkillCardIcon icon={reduxIcon} />
                               </SkillCard>
-                              <SkillCard >
-                                    <Text >JavaScript</Text>
+                              <SkillCard>
+                                    <Text>JavaScript</Text>
                                     <SkillCardIcon icon={javascriptIcon} />
                               </SkillCard>
-                              <SkillCard >
-                                    <Text >Styled Components</Text>
+                              <SkillCard>
+                                    <Text>Styled Components</Text>
                                     <SkillCardIcon icon={styledComponents} />
                               </SkillCard>
-                              <SkillCard >
-                                    <Text >CSS</Text>
+                              <SkillCard>
+                                    <Text>CSS</Text>
                                     <SkillCardIcon icon={css3Icon} />
                               </SkillCard>
-                              <SkillCard >
+                              <SkillCard>
                                     <Text>HTML</Text>
                                     <SkillCardIcon icon={html5Icon} />
                               </SkillCard>
-                              <SkillCard >
+                              <SkillCard>
                                     <Text>NodeJS</Text>
                                     <SkillCardIcon icon={nodeDotJs} />
                               </SkillCard>
-                              <SkillCard >
+                              <SkillCard>
                                     <Text>Git / Version Control</Text>
                                     <SkillCardIcon icon={gitIcon} />
                               </SkillCard>
-                              <SkillCard >
+                              <SkillCard>
                                     <Text>Firebase</Text>
                                     <SkillCardIcon icon={firebaseIcon} />
                               </SkillCard>
-                              <SkillCard >
+                              <SkillCard>
                                     <Text>MongoDB</Text>
                                     <SkillCardIcon icon={mongodbIcon} />
                               </SkillCard>
@@ -172,7 +170,7 @@ const Homepage = () => {
                         </InfoCard>
                   </HomepageGrid>
             </Page>
-      )
-}
+      );
+};
 
-export default withRouter(Homepage)
+export default withRouter(Homepage);

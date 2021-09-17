@@ -1,6 +1,6 @@
 /** @format */
 
-import styled, { keyframes } from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components/macro';
 
 export const MainMenuShell = styled.div`
       height: 50px;
@@ -8,7 +8,7 @@ export const MainMenuShell = styled.div`
       @media (max-width: 1000px) {
             display: block;
       }
-`
+`;
 
 export const MainMenuButton = styled.div`
       z-index: 10;
@@ -24,7 +24,7 @@ export const MainMenuButton = styled.div`
       transition: transform 100ms ease-in;
       user-select: none;
       display: flex;
-`
+`;
 
 export const MainMenuContainer = styled.div`
       z-index: 9;
@@ -57,12 +57,12 @@ export const MainMenuContainer = styled.div`
       @media (max-width: 500px) {
             width: 100vw;
       }
-`
+`;
 
 const fade = keyframes`
  0% { opacity: 0%; }
  100% { opacity: 100%; }
-`
+`;
 
 export const MainMenuSlide = styled.div`
       height: 100%;
@@ -88,7 +88,7 @@ export const MainMenuSlide = styled.div`
             transition: all 50ms ease-out;
             opacity: 0;
       }
-`
+`;
 
 export const MainMenuItem = styled.div`
       width: 100%;
@@ -99,4 +99,4 @@ export const MainMenuItem = styled.div`
       cursor: pointer;
       user-select: none;
       transform: scale(${(props) => (props.$active ? '0.95' : '1')});
-`
+`;

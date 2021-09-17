@@ -1,13 +1,13 @@
 /** @format */
 
-import styled from 'styled-components/macro'
+import styled from 'styled-components/macro';
 
 export const Title = styled.h1`
       font-size: 1.7rem;
       color: ${(props) => props.theme.text};
       margin: 0;
       font-weight: 400;
-`
+`;
 
 export const SubTitle = styled.h2`
       font-size: 1.5rem;
@@ -15,7 +15,7 @@ export const SubTitle = styled.h2`
             props.$location ? props.theme.main : props.theme.subText};
       font-weight: 400;
       margin: 0;
-`
+`;
 
 export const Text = styled.p`
       font-size: 1.3rem;
@@ -28,4 +28,4 @@ export const Text = styled.p`
       @media (max-width: 650px) {
             font-size: 1rem;
       }
-`
+`;
